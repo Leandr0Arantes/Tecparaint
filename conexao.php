@@ -1,6 +1,6 @@
 <?php
 
-$servidor = "https://github.com/Leandr0Arantes/banco-teste";
+$servidor = "localhost";
 $usuario = "root";
 $senha = "";
 $dbname = "cadastro_filmes";
