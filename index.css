@@ -5,7 +5,7 @@ html *{
 }
 
 body{
-    background-image: url(img/fundo.jpg);
+    background-image: url(/img/fundo.jpg);
     display: flex;
     justify-content: center;
     align-items: center;

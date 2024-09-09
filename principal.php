@@ -8,7 +8,7 @@ include("valida.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Principal</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="principal.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
@@ -24,7 +24,7 @@ include("valida.php");
     <div class="main">
         <div class="menu">
             <ul>
-                <li>item 1</li>
+                <li><a href="cadastro.php" target="_self" rel="next">Cadastro</a></li>
                 <li>item 2</li>
                 <li>item 3</li>
             </ul>
