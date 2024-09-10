@@ -24,9 +24,9 @@ include("valida.php");
     <div class="main">
         <div class="menu">
             <ul>
-                <li><a href="cadastro.php" target="_self" rel="next">Cadastro</a></li>
-                <li>item 2</li>
-                <li>item 3</li>
+                <li><a href="cadastro.php" target="_self" rel="next">Cadastrar</a></li>
+                <li><a href="edita.php" target="_self" rel="next">Editar</a></li>
+                <li><a href="busca.php">Buscar</a></li>
             </ul>
         </div>
         <div class="conteudo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod libero nihil, ea nisi nesciunt vitae adipisci corporis sunt optio ipsum, repudiandae dolorem porro accusantium inventore ab quia, minus delectus tempore!</div>

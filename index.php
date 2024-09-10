@@ -1,29 +1,17 @@
-<html>
-<title>Aula PHP</title>
-
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
-    <script>
-        function valida() {
-            nome = document.getElementById("nome").value;
-            if (nome == "") {
-                alert("Digite um nome");
-                document.getElementById("nome").focus();
-                return false;
-            }
-            return true;
-        }
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <form method="post" action="login.php" onSubmit="return valida();" class="formulario">
-                <p>Login</p>
-                <label for="cpf">CPF:</label>
-                <input type="text" name="cpf" id="cpf">
-                <label for="senha">Senha: </label>
-                <input type="password" name="senha" id="senha">
-                <input type="submit" value="Login">
+    <form method="post" action="login.php" class="formulario">
+                <p>LOGIN</p>
+                <input type="text" name="cpf" id="cpf" placeholder="CPF:" required class="campos">
+                <input type="password" name="senha" id="senha" placeholder="SENHA:" required class="campos">
+                <input type="submit" value="Entrar" class="btn_submit">
     </form>
 </body>
-
 </html>
