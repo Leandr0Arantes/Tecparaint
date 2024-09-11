@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="cadastro.css">
+    <link rel="stylesheet" href="./css/cadastro.css">
 </head>
 <body>
     <header>
@@ -12,10 +12,10 @@
         <button><a href="principal.php" target="_self" rel="prev">Voltar</a></button>
     </header>
     <?php
-        include('conexao.php');
-        include('valida.php')
+        include('./funcoes/conexao.php');
+        include('./funcoes/valida.php');
     ?>
-    <form action="cadastrar.php" method="post">
+    <form action="./funcoes/cadastrar.php" method="post">
         <label for="nome">Nome:</label>
         <input type="text" name="nome" id="nome">
         <label for="cpf">CPF:</label>
@@ -24,15 +24,22 @@
         <input type="password" name="senha" id="senha">
         <input type="submit" value="Salvar">
     </form>
-    <?php
+    <table>
+        <th>CPF</th>
+        <th>Nome</th>
+        <th>Senha</th>
+
+        <?php
         $sql = "select * from usuarios";
         $resultado = $conn->query($sql);
         while($row = $resultado->fetch_assoc()){
-            echo "Nome: " . $_SESSION["nome"];
-            echo "CPF: " . $_SESSION["cpf"];
-            echo "Senha:" . $_SESSION["senha"];
-        }
-    ?>
-    
+            echo "<tr>";
+            echo "<td>" . $row["nome"] . "</td>";
+            echo "<td>: " . $row["cpf"] . "</td>";
+            echo "<td>" . $row["senha"] . "</td>";
+            echo "</tr>";
+        } 
+        ?>
+    </table>
 </body>
 </html>

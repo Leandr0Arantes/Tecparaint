@@ -1,21 +1,30 @@
-<?php
-include("conexao.php");
+<!DOCTYPE html>
+<html lang="pt-br">
 
-$cpf = $_POST["cpf"];
-$senha = $_POST["senha"];
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Login</title>
+    <link rel="stylesheet" href="./css/login.css">
+</head>
 
-$sql = "select nome from usuarios where cpf = '$cpf' and senha = '$senha'";
-$resultado = $conn->query($sql);
-$row = $resultado->fetch_assoc();
+<body>
+    <form method="post" action="./funcoes/logar.php" class="formulario">
+        <h1>Login</h1>
+        <div class="form-input">
+            <label for="cpf">Usuário</label>
+            <input type="text" name="cpf" id="cpf" required placeholder="Digite seu cpf">
+        </div>
+        <div class="form-input">
+            <label for="senha">Senha</label>
+            <input type="password" name="senha" id="senha" required placeholder="Digite sua senha">
+        </div>
+        <input type="submit" value="Entrar" class="btn">
+        <div class="extra-options">
+            <a href="#">Esqueceu a senha?</a>
+            <a href="#">Criar conta nova</a>
+        </div>
+    </form>
+</body>
 
-if(isset($row) && $row["nome"] != '') {
-    session_start();
-    $_SESSION["cpf"] = $cpf;
-    $_SESSION["senha"] = $senha;
-    $_SESSION["nome"] = $row["nome"];
-
-    header("Location: principal.php");
-}else{
-    die("Senha incorreta");
-}
-?>
+</html>
