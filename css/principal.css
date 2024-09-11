@@ -7,59 +7,6 @@ body{
     background-color: #fff;
 }
 
-/* Header */
-header {
-    background-color: #f0f0f5;
-    color: white;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5em;
-    position:fixed;
-}
-
-header .user {
-    display: flex;
-    gap: 5%;
-    width: 8em;
-    justify-content: center;
-    align-items: center;
-    color: #333;
-}
-
-header p {
-    color: #333;
-    font-family: arial;
-    font-weight: bold;
-}
-
-header i {
-    font-size: 35px;
-}
-
-header button {
-    border: none;
-    background-color: transparent;
-}
-
-header button a {
-    background-color: #fff;
-    width: 100px;
-    height: 30px;
-    border-radius: 5px;
-    display: flex;
-    color: white;
-    justify-content: center;
-    align-items: center;
-    border: 3px solid red;
-    color: red;
-    text-decoration: none;
-    font-family: Arial;
-    font-weight: bold;
-    font-size: 20px;
-}
-
 /* Conteudo */
 
 .main {

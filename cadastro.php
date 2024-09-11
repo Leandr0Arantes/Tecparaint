@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/cadastro.css">
+    <link rel="stylesheet" href="./css/header.css">
 </head>
 <body>
     <header>
@@ -28,7 +29,6 @@
         <th>CPF</th>
         <th>Nome</th>
         <th>Senha</th>
-
         <?php
         $sql = "select * from usuarios";
         $resultado = $conn->query($sql);

@@ -9,6 +9,7 @@ include("./funcoes/valida.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Principal</title>
     <link rel="stylesheet" href="./css/principal.css">
+    <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
@@ -16,7 +17,7 @@ include("./funcoes/valida.php");
     <header>
         <div class="user">
             <i class="bi bi-file-person"></i>
-            <p><?php echo "Ola " . $_SESSION["nome"]; ?></p>
+            <p><?php echo "Olá, " . $_SESSION["nome"]; ?></p>
         </div>
         <button><a href="./funcoes/sair.php">Sair</a></button>
     </header>
