@@ -1,53 +1,63 @@
-<?php
-    include('./funcoes/conexao.php');
-    include('./funcoes/valida.php');
-?>
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buscar</title>
-    <link rel="stylesheet" href="./css/buscar.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Busca de Usuário</title>
 </head>
-
 <body>
-    <header>
-        <div class="user">
-            <i class="bi bi-file-person"></i>
-            <p><?php echo "Olá, " . $_SESSION["nome"]; ?></p>
-            <a href="principal.php" target="_self" rel="prev">Voltar</a>
-        </div>
-    </header>
+    <h2>Buscar Usuário</h2>
+    <a href="principal.php">voltar</a>
+    <!-- Formulário de pesquisa -->
+    <form action="" method="POST">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome"><br><br>
 
+        <label for="cpf">CPF:</label>
+        <input type="text" id="cpf" name="cpf"><br><br>
 
-    <form action="./funcoes/buscar.php" method="post">
-        <label for="nome">Nome</label>
-        <input type="text" name="nome" id="nome" placeholder="Digite um nome">
-        <label for="cpf">CPF</label>
-        <input type="text" name="cpf" id="cpf" placeholder="Digite um cpf">
-        <input type="submit" value="Enviar">
+        <input type="submit" value="Buscar">
     </form>
 
-    <table>
-        <th>Nome</th>
-        <th>CPF</th>
-        <th>Senha</th>
-        <?php
-        $sql = "select * from usuarios";
-        $resultado = $conn->query($sql);
-        while ($row = $resultado->fetch_assoc()) {
-            echo "<tr>";
-            echo "<td>" . $row["nome"] . "</td>";
-            echo "<td>: " . $row["cpf"] . "</td>";
-            echo "<td>" . $row["senha"] . "</td>";
-            echo "</tr>";
+    <!-- Resultado da busca será mostrado aqui -->
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        include('./funcoes/conexao.php'); // Inclui a conexão com o banco de dados
+        include('./funcoes/valida.php');
+
+        $nome = $_POST["nome"];
+        $cpf = $_POST["cpf"];
+
+        // Usar prepared statement para evitar injeção de SQL
+        $stmt = $conn->prepare("SELECT * FROM usuarios WHERE nome = ? OR cpf = ?");
+        $stmt->bind_param("ss", $nome, $cpf);  // "ss" para duas strings
+
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+
+        if ($resultado->num_rows > 0) {
+            // Exibe o resultado em uma tabela
+            echo "<h2>Resultados da Busca:</h2>";
+            echo "<table border='1'>
+                    <tr>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                    </tr>";
+
+            while ($row = $resultado->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>" . $row["nome"] . "</td>";
+                echo "<td>" . $row["cpf"] . "</td>";
+                echo "</tr>";
+            }
+            echo "</table>";
+        } else {
+            echo "<p>Nenhum usuário encontrado com os dados fornecidos.</p>";
         }
-        ?>
-    </table>
 
+        $stmt->close();
+        $conn->close();
+    }
+    ?>
 </body>
-
 </html>

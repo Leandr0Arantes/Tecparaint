@@ -9,21 +9,21 @@
 </head>
 
 <body>
-    <form method="post" action="./funcoes/logar.php" class="formulario">
+    <form method="post" action="./funcoes/criar_conta.php" class="formulario">
         <h1>Login</h1>
         <div class="form-input">
-            <label for="cpf">Usuário</label>
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome" required placeholder="Digite seu nome">
+        </div>
+        <div class="form-input">
+            <label for="cpf">CPF</label>
             <input type="text" name="cpf" id="cpf" required placeholder="Digite seu cpf">
         </div>
         <div class="form-input">
             <label for="senha">Senha</label>
             <input type="password" name="senha" id="senha" required placeholder="Digite sua senha">
         </div>
-        <input type="submit" value="Entrar" class="btn">
-        <div class="extra-options">
-            <a href="recupera_senha.php">Esqueceu a senha?</a>
-            <a href="cria_conta.php">Criar conta nova</a>
-        </div>
+        <input type="submit" value="Criar conta" class="btn">
     </form>
 </body>
 

@@ -21,8 +21,7 @@
         </div>
         <input type="submit" value="Entrar" class="btn">
         <div class="extra-options">
-            <a href="recupera_senha.php">Esqueceu a senha?</a>
-            <a href="cria_conta.php">Criar conta nova</a>
+            <a href="login.php">Relembrou a senha?</a>
         </div>
     </form>
 </body>
