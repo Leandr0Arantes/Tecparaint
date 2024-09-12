@@ -1,13 +1,28 @@
+<?php
+include('./funcoes/conexao.php'); // Inclui a conexão com o banco de dados
+include('./funcoes/valida.php');
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Busca de Usuário</title>
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/busca.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
+
 <body>
-    <h2>Buscar Usuário</h2>
-    <a href="principal.php">voltar</a>
+    <header>
+        <div class="user">
+            <i class="bi bi-file-person"></i>
+            <p><?php echo "Olá, " . $_SESSION["nome"]; ?></p>
+        </div>
+        <a href="principal.php">Voltar</a>
+    </header>
     <!-- Formulário de pesquisa -->
     <form action="" method="POST">
         <label for="nome">Nome:</label>
@@ -22,8 +37,6 @@
     <!-- Resultado da busca será mostrado aqui -->
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        include('./funcoes/conexao.php'); // Inclui a conexão com o banco de dados
-        include('./funcoes/valida.php');
 
         $nome = $_POST["nome"];
         $cpf = $_POST["cpf"];
@@ -60,4 +73,5 @@
     }
     ?>
 </body>
+
 </html>

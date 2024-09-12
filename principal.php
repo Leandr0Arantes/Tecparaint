@@ -19,9 +19,8 @@ include("./funcoes/valida.php");
             <i class="bi bi-file-person"></i>
             <p><?php echo "Olá, " . $_SESSION["nome"]; ?></p>
         </div>
-        <button><a href="./funcoes/sair.php">Sair</a></button>
+        <a href="./funcoes/sair.php">Sair</a>
     </header>
-    <div style="padding: 2.75em;"></div>
     <div class="main">
         <div class="menu">
             <ul>
@@ -30,8 +29,9 @@ include("./funcoes/valida.php");
                 <li><a href="busca.php">Buscar</a></li>
             </ul>
         </div>
-        <div class="conteudo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod libero nihil, ea nisi nesciunt vitae adipisci corporis sunt optio ipsum, repudiandae dolorem porro accusantium inventore ab quia, minus delectus tempore!</div>
-    </div>
+        <div class="conteudo">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod libero nihil, ea nisi nesciunt vitae adipisci corporis sunt optio ipsum, repudiandae dolorem porro accusantium inventore ab quia, minus delectus tempore!
+        </div>
 
 </body>
 
