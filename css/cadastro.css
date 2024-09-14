@@ -14,7 +14,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40%;
+    width: 35%;
     height: 90vh;
 }
 
@@ -73,12 +73,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60%;
+    width: 65%;
 }
 
 .table table {
-    width: 15em;
+    width: 55em;
     height: 15em;
-
-    border: 1px solid black;
+}
+.table table th{
 }

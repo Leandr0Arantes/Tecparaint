@@ -41,9 +41,9 @@ include('./funcoes/valida.php');
         </form>
     </div>
     <div class="table">
-        <table>
-            <th>CPF</th>
+        <table border="1px">
             <th>Nome</th>
+            <th>CPF</th>
             <th>Senha</th>
             <?php
             $sql = "select * from usuarios";
