@@ -4,6 +4,15 @@ include('./funcoes/valida.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+    <script>
+        <?php
+            if(isset($_GET["erro"])&&$_GET["erro"]==1){
+                ?>
+                    window.alert("Erro");
+                <?php
+            }
+        ?>
+    </script>
 
 <head>
     <meta charset="UTF-8">
@@ -46,14 +55,28 @@ include('./funcoes/valida.php');
             <th>CPF</th>
             <th>Senha</th>
             <?php
-            $sql = "select * from usuarios";
+            $sql = "SELECT * FROM usuarios";
             $resultado = $conn->query($sql);
             while ($row = $resultado->fetch_assoc()) {
-                echo "<tr>";
-                echo "<td>" . $row["nome"] . "</td>";
-                echo "<td>: " . $row["cpf"] . "</td>";
-                echo "<td>" . $row["senha"] . "</td>";
-                echo "</tr>";
+            ?>
+            <tr>
+                <form action="funcoes/alterar_usuario.php" method="post">
+                    <input type="hidden" name="cpfAnterior" value="<?= $row['cpf']; ?>">
+                    <td>
+                        <input type="text" name="nome" value="<?= $row['nome']; ?>">
+                    </td>
+                    <td>
+                        <input type="text" name="cpf" value="<?= $row['cpf']; ?>">
+                    </td>
+                    <td>
+                        <input type="text" name="senha" value="<?= $row['senha']; ?>">
+                    </td>
+                    <td>
+                        <input type="submit" value="Alterar">
+                    </td>
+                </form>
+                </tr>
+            <?php
             }
             ?>
         </table>
