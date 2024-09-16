@@ -41,7 +41,7 @@ include('./funcoes/valida.php');
         </form>
     </div>
     <div class="table">
-        <table border="1px">
+        <table>
             <th>Nome</th>
             <th>CPF</th>
             <th>Senha</th>

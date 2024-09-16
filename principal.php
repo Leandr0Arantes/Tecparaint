@@ -32,7 +32,7 @@ include("./funcoes/valida.php");
         <div class="conteudo">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod libero nihil, ea nisi nesciunt vitae adipisci corporis sunt optio ipsum, repudiandae dolorem porro accusantium inventore ab quia, minus delectus tempore!
         </div>
-
+    </div>
 </body>
 
 </html>

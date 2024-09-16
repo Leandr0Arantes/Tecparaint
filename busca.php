@@ -24,15 +24,20 @@ include('./funcoes/valida.php');
         <a href="principal.php">Voltar</a>
     </header>
     <!-- Formulário de pesquisa -->
-    <form action="" method="POST">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome"><br><br>
-
-        <label for="cpf">CPF:</label>
-        <input type="text" id="cpf" name="cpf"><br><br>
-
-        <input type="submit" value="Buscar">
-    </form>
+    <div class="form">
+        <form action="" method="post" class="formulario">
+            <p>Fazer cadastro</p>
+            <div class="form-input">
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" id="nome" placeholder="Digite seu nome">
+            </div>
+            <div class="form-input">
+                <label for="cpf">CPF:</label>
+                <input type="text" name="cpf" id="cpf" placeholder="Digite seu cpf">
+            </div>
+            <input type="submit" value="Buscar" class="btn">
+        </form>
+    </div>
 
     <!-- Resultado da busca será mostrado aqui -->
     <?php
