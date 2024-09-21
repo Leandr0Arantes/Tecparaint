@@ -16,19 +16,21 @@ include("./funcoes/valida.php");
 <body>
     <header>
         <div class="user">
-            <i class="bi bi-file-person"></i>
+            <i class="bi bi-person-square"></i>
             <p><?php echo "Olá, " . $_SESSION["nome"]; ?></p>
         </div>
-        <a href="./funcoes/sair.php">Sair</a>
-    </header>
-    <div class="main">
         <div class="menu">
             <ul>
+                <li class="atual"><a href="principal.php" target="_self" rel="next">Principal</a></li>
                 <li><a href="cadastro.php" target="_self" rel="next">Cadastrar</a></li>
-                <li><a href="edita.php" target="_self" rel="next">Editar</a></li>
+                <li><a href="#" target="_self" rel="next">Editar</a></li>
+                <li><a href="#" target="_self" rel="next">Remover</a></li>
                 <li><a href="busca.php">Buscar</a></li>
+                <li><a class="btn-sair" href="./funcoes/sair.php">Sair</a>  </li>
             </ul>
         </div>
+    </header>
+    <div class="main">
         <div class="conteudo">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod libero nihil, ea nisi nesciunt vitae adipisci corporis sunt optio ipsum, repudiandae dolorem porro accusantium inventore ab quia, minus delectus tempore!
         </div>

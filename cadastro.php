@@ -4,15 +4,15 @@ include('./funcoes/valida.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
-    <script>
-        <?php
-            if(isset($_GET["erro"])&&$_GET["erro"]==1){
-                ?>
-                    window.alert("Erro");
-                <?php
-            }
+<script>
+    <?php
+    if (isset($_GET["erro"]) && $_GET["erro"] == 1) {
         ?>
-    </script>
+        window.alert("Erro");
+        <?php
+    }
+    ?>
+</script>
 
 <head>
     <meta charset="UTF-8">
@@ -26,60 +26,72 @@ include('./funcoes/valida.php');
 <body>
     <header>
         <div class="user">
-            <i class="bi bi-file-person"></i>
+            <i class="bi bi-person-square"></i>
             <p><?php echo "Olá, " . $_SESSION["nome"]; ?></p>
         </div>
-        <a href="principal.php">Voltar</a>
+        <div class="menu">
+            <ul>
+                <li class="atual"><a href="principal.php" target="_self" rel="next">Principal</a></li>
+                <li><a href="cadastro.php" target="_self" rel="next">Cadastrar</a></li>
+                <li><a href="#" target="_self" rel="next">Editar</a></li>
+                <li><a href="#" target="_self" rel="next">Remover</a></li>
+                <li><a href="busca.php">Buscar</a></li>
+                <li><a class="btn-sair" href="./funcoes/sair.php">Sair</a> </li>
+            </ul>
+        </div>
     </header>
-    <div class="form">
-        <form action="./funcoes/cadastrar.php" method="post" class="formulario">
-            <p>Fazer cadastro</p>
-            <div class="form-input">
-                <label for="nome">Nome:</label>
-                <input type="text" name="nome" id="nome" required placeholder="Digite seu nome">
-            </div>
-            <div class="form-input">
-                <label for="cpf">CPF:</label>
-                <input type="text" name="cpf" id="cpf" required placeholder="Digite seu cpf">
-            </div>
-            <div class="form-input">
-                <label for="senha">Senha:</label>
-                <input type="password" name="senha" id="senha" required placeholder="Digite sua senha">
-            </div>
-            <input type="submit" value="Salvar" class="btn">
-        </form>
-    </div>
-    <div class="table">
-        <table>
-            <th>Nome</th>
-            <th>CPF</th>
-            <th>Senha</th>
-            <?php
-            $sql = "SELECT * FROM usuarios";
-            $resultado = $conn->query($sql);
-            while ($row = $resultado->fetch_assoc()) {
-            ?>
-            <tr>
-                <form action="funcoes/alterar_usuario.php" method="post">
-                    <input type="hidden" name="cpfAnterior" value="<?= $row['cpf']; ?>">
-                    <td>
-                        <input type="text" name="nome" value="<?= $row['nome']; ?>">
-                    </td>
-                    <td>
-                        <input type="text" name="cpf" value="<?= $row['cpf']; ?>">
-                    </td>
-                    <td>
-                        <input type="text" name="senha" value="<?= $row['senha']; ?>">
-                    </td>
-                    <td>
-                        <input type="submit" value="Alterar">
-                    </td>
-                </form>
-                </tr>
-            <?php
-            }
-            ?>
-        </table>
+    <div>
+        <div class="form">
+            <form action="./funcoes/cadastrar.php" method="post" class="formulario">
+                <p>Fazer cadastro</p>
+                <div class="form-input">
+                    <label for="nome">Nome:</label>
+                    <input type="text" name="nome" id="nome" required placeholder="Digite seu nome">
+                </div>
+                <div class="form-input">
+                    <label for="cpf">CPF:</label>
+                    <input type="text" name="cpf" id="cpf" required placeholder="Digite seu cpf">
+                </div>
+                <div class="form-input">
+                    <label for="senha">Senha:</label>
+                    <input type="password" name="senha" id="senha" required placeholder="Digite sua senha">
+                </div>
+                <input type="submit" value="Salvar" class="btn">
+            </form>
+        </div>
+        
+        <div class="table">
+            <table>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Senha</th>
+                <?php
+                $sql = "SELECT * FROM usuarios";
+                $resultado = $conn->query($sql);
+                while ($row = $resultado->fetch_assoc()) {
+                    ?>
+                    <tr>
+                        <form action="funcoes/alterar_usuario.php" method="post">
+                            <input type="hidden" name="cpfAnterior" value="<?= $row['cpf']; ?>">
+                            <td>
+                                <input type="text" name="nome" value="<?= $row['nome']; ?>">
+                            </td>
+                            <td>
+                                <input type="text" name="cpf" value="<?= $row['cpf']; ?>">
+                            </td>
+                            <td>
+                                <input type="text" name="senha" value="<?= $row['senha']; ?>">
+                            </td>
+                            <td>
+                                <input type="submit" value="Alterar">
+                            </td>
+                        </form>
+                    </tr>
+                    <?php
+                }
+                ?>
+            </table>
+        </div>
     </div>
 
 </body>

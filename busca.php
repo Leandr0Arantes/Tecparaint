@@ -10,18 +10,27 @@ include('./funcoes/valida.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Busca de Usuário</title>
-    <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/busca.css">
+    <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body>
     <header>
         <div class="user">
-            <i class="bi bi-file-person"></i>
+            <i class="bi bi-person-square"></i>
             <p><?php echo "Olá, " . $_SESSION["nome"]; ?></p>
         </div>
-        <a href="principal.php">Voltar</a>
+        <div class="menu">
+            <ul>
+                <li class="atual"><a href="principal.php" target="_self" rel="next">Principal</a></li>
+                <li><a href="cadastro.php" target="_self" rel="next">Cadastrar</a></li>
+                <li><a href="#" target="_self" rel="next">Editar</a></li>
+                <li><a href="#" target="_self" rel="next">Remover</a></li>
+                <li><a href="busca.php">Buscar</a></li>
+                <li><a class="btn-sair" href="./funcoes/sair.php">Sair</a> </li>
+            </ul>
+        </div>
     </header>
     <!-- Formulário de pesquisa -->
     <div class="form">
@@ -49,7 +58,7 @@ include('./funcoes/valida.php');
         // Usar prepared statement para evitar injeção de SQL
         $stmt = $conn->prepare("SELECT * FROM usuarios WHERE nome = ? OR cpf = ?");
         $stmt->bind_param("ss", $nome, $cpf);  // "ss" para duas strings
-
+    
         $stmt->execute();
         $resultado = $stmt->get_result();
 
