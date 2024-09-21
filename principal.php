@@ -22,9 +22,9 @@ include("./funcoes/valida.php");
         <div class="menu">
             <ul>
                 <li class="atual"><a href="principal.php" target="_self" rel="next">Principal</a></li>
-                <li><a href="cadastro.php" target="_self" rel="next">Cadastrar</a></li>
-                <li><a href="#" target="_self" rel="next">Editar</a></li>
-                <li><a href="#" target="_self" rel="next">Remover</a></li>
+                <li><a href="cadastrar.php" target="_self" rel="next">Cadastrar</a></li>
+                <li><a href="alterar.php" target="_self" rel="next">Alterar</a></li>
+                <li><a href="remover.php" target="_self" rel="next">Remover</a></li>
                 <li><a href="busca.php">Buscar</a></li>
                 <li><a class="btn-sair" href="./funcoes/sair.php">Sair</a>  </li>
             </ul>
