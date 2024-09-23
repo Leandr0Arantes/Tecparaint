@@ -1,8 +1,7 @@
-<?php 
+<?php
 session_start();
 
-if(!isset($_SESSION['nome']) || $_SESSION['nome'] == ''){
+if (!isset($_SESSION['nome']) || $_SESSION['nome'] == '') {
     session_destroy();
-    header("Location: login.php");
+    header("Location: index.php");
 }
-?>

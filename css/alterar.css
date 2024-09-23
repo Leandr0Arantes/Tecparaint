@@ -1,9 +1,50 @@
-html *{
+html * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.conteudo {
+    display: flex;
+}
+
+.table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 65%;
+}
+
+.table table {
+    width: 55em;
+    height: 15em;
+    border-collapse: collapse;
+}
+
+.table table th {
+    border: 1px solid black;
+    background-color: rgb(176, 176, 176);
+}
+
+.table table tr {
+    border: 1px solid black;
+}
+
+.table table td {
+    border: 1px solid black;
+    text-align: center;
+
+}
+
+.table input[type="submit"] {
+    background-color: #4CAF50;
+    padding: 5px 10px;
+    border-style: none;
+    border-radius: 10px;
+    color: white;
+    margin: 4%;
 }
