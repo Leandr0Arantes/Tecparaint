@@ -39,7 +39,7 @@ include('./funcoes/valida.php');
             <form action="" method="post" class="formulario">
                 <p>Fazer cadastro</p>
 
-                <label><input type="radio" name="tipo" value="nome" onclick="toggleInputs()"> Nome</label>
+                <label><input type="radio" name="tipo" value="nome" onclick="toggleInputs()" checked> Nome</label>
                 <label><input type="radio" name="tipo" value="cpf" onclick="toggleInputs()"> CPF</label>
                 <div class="form-input" id="inputNome">
                     <label for="nome">Nome:</label>
