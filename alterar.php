@@ -1,6 +1,16 @@
 <?php
 include('./funcoes/conexao.php');
 include('./funcoes/valida.php');
+
+if(isset($_GET["erro"]) and $_GET["erro"] == 1){
+    ?>
+    <script>
+        window.alert("Usuário alterado com sucesso!");
+    </script>
+    <?php
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -46,7 +56,7 @@ include('./funcoes/valida.php');
                 while ($row = $resultado->fetch_assoc()) {
                 ?>
                 <tr>
-                    <form action="funcoes/alterar_usuario.php" method="post">
+                    <form action="funcoes/alterar.php" method="post">
                         <input type="hidden" name="cpfAnterior" value="<?= $row['cpf']; ?>">
                         <td>
                             <input type="text" name="nome" value="<?= $row['nome']; ?>">

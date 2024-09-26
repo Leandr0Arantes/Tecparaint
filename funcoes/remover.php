@@ -10,6 +10,6 @@ if (!$resultado = $conn->query($sql)) {
     die("erro");
 }
 
-header("Location: ../remover.php");
+header("Location: ../remover.php?erro=1");
 
 ?>

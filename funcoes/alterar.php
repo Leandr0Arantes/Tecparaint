@@ -9,8 +9,9 @@ $cpfAnterior = $_POST["cpfAnterior"];
 $sql = ("UPDATE `usuarios` SET cpf = '$cpf' , senha = '$senha', nome = '$nome' WHERE cpf = '$cpfAnterior'");
 
 if (!$resultado = $conn->query($sql)) {
-    die("erro");
+    die("Errado");
 }
 
-header("Location: ../alterar.php");
+header("Location: ../alterar.php?erro=1");
+exit();
 ?>

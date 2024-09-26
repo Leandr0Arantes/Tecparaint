@@ -3,6 +3,16 @@ include('./funcoes/conexao.php'); // Inclui a conexão com o banco de dados
 include('./funcoes/valida.php');
 ?>
 
+<script>
+    <?php
+    if(isset($_GET["erro"]) and $_GET["erro"] == 1){
+    ?>
+    window.alert("Usuário removido com sucesso!");
+    <?php
+    }
+    ?>
+</script>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 

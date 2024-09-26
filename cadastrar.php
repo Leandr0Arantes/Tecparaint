@@ -5,11 +5,20 @@ include('./funcoes/valida.php');
 <!DOCTYPE html>
 <html lang="pt-br">
 <script>
-<?php
+    <?php
     if (isset($_GET["erro"]) && $_GET["erro"] == 1) {
     ?>
-    window.alert("Erro: Dados incorretos ou falha na inserção.");
-<?php
+        window.alert("Erro: Dados incorretos ou falha na inserção.");
+    <?php
+    }
+    ?>
+</script>
+<script>
+    <?php
+    if (isset($_GET["sucesso"]) && $_GET["sucesso"] == 1) {
+    ?>
+        window.alert("Usuário inserido com sucesso!");
+    <?php
     }
     ?>
 </script>
@@ -72,11 +81,11 @@ include('./funcoes/valida.php');
                 $resultado = $conn->query($sql);
                 while ($row = $resultado->fetch_assoc()) {
                 ?>
-                <tr>
-                    <td><?= $row['nome']; ?></td>
-                    <td><?= $row['cpf']; ?></td>
-                    <td><?= $row['senha']; ?></td>
-                </tr>
+                    <tr>
+                        <td><?= $row['nome']; ?></td>
+                        <td><?= $row['cpf']; ?></td>
+                        <td><?= $row['senha']; ?></td>
+                    </tr>
                 <?php
                 }
                 ?>
