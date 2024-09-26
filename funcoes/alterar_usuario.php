@@ -12,4 +12,5 @@ if (!$resultado = $conn->query($sql)) {
     die("erro");
 }
 
-header("Location: ../cadastrar.php");
+header("Location: ../alterar.php");
+?>

@@ -13,6 +13,7 @@ include('./funcoes/valida.php');
     <link rel="stylesheet" href="./css/busca.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/form.css">
+    <link rel="stylesheet" href="./css/table.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 

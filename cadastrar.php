@@ -8,7 +8,7 @@ include('./funcoes/valida.php');
 <?php
     if (isset($_GET["erro"]) && $_GET["erro"] == 1) {
     ?>
-window.alert("Erro");
+    window.alert("Erro: Dados incorretos ou falha na inserção.");
 <?php
     }
     ?>
@@ -21,6 +21,7 @@ window.alert("Erro");
     <link rel="stylesheet" href="./css/cadastrar.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/form.css">
+    <link rel="stylesheet" href="./css/table.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
@@ -66,28 +67,15 @@ window.alert("Erro");
                 <th>Nome</th>
                 <th>CPF</th>
                 <th>Senha</th>
-                <th>Alterar</th>
                 <?php
                 $sql = "SELECT * FROM usuarios";
                 $resultado = $conn->query($sql);
                 while ($row = $resultado->fetch_assoc()) {
                 ?>
                 <tr>
-                    <form action="funcoes/alterar_usuario.php" method="post">
-                        <input type="hidden" name="cpfAnterior" value="<?= $row['cpf']; ?>">
-                        <td>
-                            <input type="text" name="nome" value="<?= $row['nome']; ?>">
-                        </td>
-                        <td>
-                            <input type="text" name="cpf" value="<?= $row['cpf']; ?>">
-                        </td>
-                        <td>
-                            <input type="text" name="senha" value="<?= $row['senha']; ?>">
-                        </td>
-                        <td>
-                            <input type="submit" value="Alterar" class="btn-input">
-                        </td>
-                    </form>
+                    <td><?= $row['nome']; ?></td>
+                    <td><?= $row['cpf']; ?></td>
+                    <td><?= $row['senha']; ?></td>
                 </tr>
                 <?php
                 }

@@ -13,6 +13,7 @@ include('./funcoes/valida.php');
     <link rel="stylesheet" href="./css/remover.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/form.css">
+    <link rel="stylesheet" href="./css/table.css">  
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
@@ -33,6 +34,41 @@ include('./funcoes/valida.php');
             </ul>
         </div>
     </header>
+    <div class="conteudo">
+        <div class="table">
+        <table>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Senha</th>
+                    <th>Alterar</th>
+                    <?php
+                    $sql = "SELECT * FROM usuarios";
+                    $resultado = $conn->query($sql);
+                    while ($row = $resultado->fetch_assoc()) {
+                    ?>
+                    <tr>
+                        <form action="funcoes/remover.php" method="post">
+                            <td>
+                                <p><?= $row['nome']; ?></p>
+                            </td>
+                            <td>
+                                <p><?= $row['cpf']; ?></p>
+                            </td>
+                            <td>
+                                <p><?= $row['senha']; ?></p>
+                            </td>
+                            <td>
+                                <input type="hidden" name="cpfAtual" value="<?= $row['cpf']; ?>">
+                                <input type="submit" value="Remover" class="btn-input">
+                            </td>
+                        </form>
+                    </tr>
+                    <?php
+                    }
+                    ?>
+                </table>
+        </div>
+    </div>
 </body>
 
 </html>
