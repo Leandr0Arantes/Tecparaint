@@ -1,17 +1,8 @@
 <?php
 include('./funcoes/conexao.php');
 include('./funcoes/valida.php');
-
-if(isset($_GET["erro"]) and $_GET["erro"] == 1){
-    ?>
-    <script>
-        window.alert("Usuário alterado com sucesso!");
-    </script>
-    <?php
-}
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -79,6 +70,18 @@ if(isset($_GET["erro"]) and $_GET["erro"] == 1){
         </div>
     </div>
 
+    <script defer>
+<?php
+if(isset($_GET["erro"]) and $_GET["erro"] == 1){
+    ?>
+        window.alert("Usuário alterado com sucesso!");
+    <?php
+}
+?>
+</script>
+
 </body>
+
+
 
 </html>
