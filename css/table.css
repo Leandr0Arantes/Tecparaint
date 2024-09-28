@@ -14,11 +14,12 @@
     border: 1px solid black;
     padding: 15px;
     background-color: rgb(176, 176, 176);
+    font-size: 20px;
 }
 
 .table table tr {
-
     border: 1px solid black;
+    font-size: 20px;
 }
 
 .table table td {
@@ -26,6 +27,10 @@
     border: 1px solid black;
     text-align: center;
 
+}
+
+.table table tr input{
+    font-size: 20px;
 }
 
 .table input[type="submit"] {

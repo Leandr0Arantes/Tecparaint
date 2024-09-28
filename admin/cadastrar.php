@@ -1,6 +1,7 @@
 <?php
-include('./funcoes/conexao.php');
-include('./funcoes/valida.php');
+include('../funcoes/conexao.php'); // Inclui a conexão com o banco de dados
+include('../funcoes/valida.php');
+include('../funcoes/validaAdmin.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -27,10 +28,10 @@ include('./funcoes/valida.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/cadastrar.css">
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/form.css">
-    <link rel="stylesheet" href="./css/table.css">
+    <link rel="stylesheet" href="../css/cadastrar.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/form.css">
+    <link rel="stylesheet" href="../css/table.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
@@ -47,13 +48,13 @@ include('./funcoes/valida.php');
                 <li><a href="alterar.php" target="_self" rel="next">Alterar</a></li>
                 <li><a href="remover.php" target="_self" rel="next">Remover</a></li>
                 <li><a href="busca.php">Buscar</a></li>
-                <li><a class="btn-sair" href="./funcoes/sair.php">Sair</a> </li>
+                <li><a class="btn-sair" href="../funcoes/sair.php">Sair</a> </li>
             </ul>
         </div>
     </header>
     <div class="conteudo">
         <div class="form">
-            <form action="./funcoes/cadastrar.php" method="post" class="formulario">
+            <form action="../funcoes/cadastrar.php" method="post" class="formulario">
                 <p>Fazer cadastro</p>
                 <div class="form-input">
                     <label for="nome">Nome:</label>
@@ -73,8 +74,10 @@ include('./funcoes/valida.php');
 
         <div class="table">
             <table>
+                <th>ID</th>
                 <th>Nome</th>
                 <th>CPF</th>
+                <th>Administrador</th>
                 <th>Senha</th>
                 <?php
                 $sql = "SELECT * FROM usuarios";
@@ -82,8 +85,10 @@ include('./funcoes/valida.php');
                 while ($row = $resultado->fetch_assoc()) {
                 ?>
                     <tr>
+                        <td><?= $row['id']?></td>
                         <td><?= $row['nome']; ?></td>
                         <td><?= $row['cpf']; ?></td>
+                        <td><?= $row['administrador']; ?></td>
                         <td><?= $row['senha']; ?></td>
                     </tr>
                 <?php

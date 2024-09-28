@@ -1,6 +1,7 @@
 <?php
-include('./funcoes/conexao.php'); // Inclui a conexão com o banco de dados
-include('./funcoes/valida.php');
+include('../funcoes/conexao.php'); // Inclui a conexão com o banco de dados
+include('../funcoes/valida.php');
+include('../funcoes/validaAdmin.php');
 ?>
 
 <script>
@@ -20,10 +21,10 @@ include('./funcoes/valida.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Remover</title>
-    <link rel="stylesheet" href="./css/remover.css">
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/form.css">
-    <link rel="stylesheet" href="./css/table.css">  
+    <link rel="stylesheet" href="../css/remover.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/form.css">
+    <link rel="stylesheet" href="../css/table.css">  
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
@@ -40,33 +41,31 @@ include('./funcoes/valida.php');
                 <li><a href="alterar.php" target="_self" rel="next">Alterar</a></li>
                 <li><a href="remover.php" target="_self" rel="next">Remover</a></li>
                 <li><a href="busca.php">Buscar</a></li>
-                <li><a class="btn-sair" href="./funcoes/sair.php">Sair</a> </li>
+                <li><a class="btn-sair" href="../funcoes/sair.php">Sair</a> </li>
             </ul>
         </div>
     </header>
     <div class="conteudo">
         <div class="table">
         <table>
+                    <th>ID</th>
                     <th>Nome</th>
                     <th>CPF</th>
+                    <th>Administrador</th>
                     <th>Senha</th>
-                    <th>Alterar</th>
+                    <th>Remover</th>
                     <?php
                     $sql = "SELECT * FROM usuarios";
                     $resultado = $conn->query($sql);
                     while ($row = $resultado->fetch_assoc()) {
                     ?>
                     <tr>
-                        <form action="funcoes/remover.php" method="post">
-                            <td>
-                                <p><?= $row['nome']; ?></p>
-                            </td>
-                            <td>
-                                <p><?= $row['cpf']; ?></p>
-                            </td>
-                            <td>
-                                <p><?= $row['senha']; ?></p>
-                            </td>
+                        <form action="../funcoes/remover.php" method="post">
+                            <td><?= $row['id']?></td>
+                            <td><?= $row['nome']; ?></td>
+                            <td><?= $row['cpf']; ?></td>
+                            <td><?= $row['administrador']; ?></td>
+                            <td><?= $row['senha']; ?></td>
                             <td>
                                 <input type="hidden" name="cpfAtual" value="<?= $row['cpf']; ?>">
                                 <input type="submit" value="Remover" class="btn-input">

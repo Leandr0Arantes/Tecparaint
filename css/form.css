@@ -56,3 +56,19 @@
 .btn:hover {
     background-color: #45a049;
 }
+
+.extra-options {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.extra-options a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #4CAF50;
+}
+
+.extra-options a:hover {
+    text-decoration: underline;
+}

@@ -1,5 +1,6 @@
 <?php
-include("./funcoes/valida.php");
+include("../funcoes/valida.php");
+include('../funcoes/validaAdmin.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -8,8 +9,8 @@ include("./funcoes/valida.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Principal</title>
-    <link rel="stylesheet" href="./css/principal.css">
-    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="../css/principal.css">
+    <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
@@ -26,13 +27,13 @@ include("./funcoes/valida.php");
                 <li><a href="alterar.php" target="_self" rel="next">Alterar</a></li>
                 <li><a href="remover.php" target="_self" rel="next">Remover</a></li>
                 <li><a href="busca.php">Buscar</a></li>
-                <li><a class="btn-sair" href="./funcoes/sair.php">Sair</a>  </li>
+                <li><a class="btn-sair" href="../funcoes/sair.php">Sair</a>  </li>
             </ul>
         </div>
     </header>
     <div class="main">
         <div class="conteudo">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod libero nihil, ea nisi nesciunt vitae adipisci corporis sunt optio ipsum, repudiandae dolorem porro accusantium inventore ab quia, minus delectus tempore!
+            <h1>Usuário Administrador</h1>
         </div>
     </div>
 </body>
