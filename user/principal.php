@@ -17,7 +17,7 @@ include("../funcoes/valida.php");
     <header>
         <div class="user">
             <i class="bi bi-person-square"></i>
-            <p><?php echo "Olá, " . $_SESSION["nome"] . $_SESSION["admin"]; ?></p>
+            <p><?php echo "Olá, " . $_SESSION["nome"];?></p>
         </div>
         <div class="menu">
             <ul>
@@ -26,10 +26,8 @@ include("../funcoes/valida.php");
             </ul>
         </div>
     </header>
-    <div class="main">
-        <div class="conteudo">
-            <h1>Usuário padrão</h1>
-        </div>
+    <div class="conteudo">
+            <h1>Usuário padrão232</h1>
     </div>
 </body>
 

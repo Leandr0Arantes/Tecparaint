@@ -8,11 +8,43 @@ body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
-.main{
+.conteudo{
     height: 90vh;
     display: flex;
+    background-color: rgb(236, 236, 236);
+    flex-wrap: wrap;
 }
-.conteudo{
+
+.container-filme{
+    width: 300px;
+    height: 400px;
+    margin: 20px;
     background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.250);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.container-filme img{
+    width: 100%;
+    height: 200px;
+}
+
+.container-filme .titulo{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold; 
+    margin-bottom: 10px;
+}
+
+.container-filme .descricao{
+    text-align: justify;
+    padding: 10px;
+}
+
+.container-filme:hover{
+    transform: scale(1.20);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
+    transition: .3s ease;
+
 }

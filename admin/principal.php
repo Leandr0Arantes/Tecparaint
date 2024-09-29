@@ -1,6 +1,7 @@
 <?php
 include("../funcoes/valida.php");
 include('../funcoes/validaAdmin.php');
+include('../funcoes/adicionaFilmes.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -31,10 +32,19 @@ include('../funcoes/validaAdmin.php');
             </ul>
         </div>
     </header>
-    <div class="main">
-        <div class="conteudo">
-            <h1>Usuário Administrador</h1>
+    <div class="conteudo">
+        <?php
+            $resultado = $conn->query($sql);
+            while ($row = $resultado->fetch_assoc()) {
+        ?>
+        <div class="container-filme">
+            <img src="<?= $row['imagem']?>" alt="#">    
+            <p class="titulo"><?= $row['nome']?></p>
+            <p class="descricao"><?= $row['descricao']?></p>
         </div>
+        <?php 
+            }
+        ?>
     </div>
 </body>
 

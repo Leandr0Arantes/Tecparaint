@@ -12,9 +12,9 @@ if(isset($row) && $row["nome"] != '') {
     $_SESSION["cpf"] = $cpf;
     $_SESSION["senha"] = $senha;
     $_SESSION["nome"] = $row["nome"];
-    $_SESSION["admin"] = $row["admin"];
+    $_SESSION["administrador"] = $row["administrador"];
 
-    if($_SESSION["admin"] == true){
+    if($_SESSION["administrador"] == 1){
         header("Location: ../admin/principal.php");
     } else{
         header("Location: ../user/principal.php");
