@@ -7,6 +7,9 @@ html *{
 body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+.atual{
+    background-color: red;
+}
 
 .conteudo{
     height: 90vh;

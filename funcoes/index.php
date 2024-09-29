@@ -13,6 +13,7 @@ if(isset($row) && $row["nome"] != '') {
     $_SESSION["senha"] = $senha;
     $_SESSION["nome"] = $row["nome"];
     $_SESSION["administrador"] = $row["administrador"];
+    $_SESSION["foto"] = $row["foto"];
 
     if($_SESSION["administrador"] == 1){
         header("Location: ../admin/principal.php");
