@@ -24,7 +24,6 @@ body{
 }
 
 .container img{
-    width: 350px;
-    height: 350px;
-    border-radius: 50%;
+    width: 100px;
+    height: 100px;
 }

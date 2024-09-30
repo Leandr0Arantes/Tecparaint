@@ -3,25 +3,31 @@ include("conexao.php");
 $cpf = $_POST["cpf"];
 $senha = $_POST["senha"];
 
-$sql = "select * from usuarios where cpf = '$cpf' and senha = '$senha'";
-$resultado = $conn->query($sql);
-$row = $resultado->fetch_assoc();
+$sql = "select nome, administrador, foto from usuarios where cpf = ? and senha = ?";
+$stmt = $conn->prepare($sql);
 
-if(isset($row) && $row["nome"] != '') {
-    session_start();
-    $_SESSION["cpf"] = $cpf;
-    $_SESSION["senha"] = $senha;
-    $_SESSION["nome"] = $row["nome"];
-    $_SESSION["administrador"] = $row["administrador"];
-    $_SESSION["foto"] = $row["foto"];
+if($stmt){
+    $stmt->bind_param("ss", $cpf, $senha);
+    $stmt->execute();
+    $stmt->bind_result($nome, $administrador, $foto);
+    $stmt->fetch();
 
-    if($_SESSION["administrador"] == 1){
-        header("Location: ../admin/principal.php");
-    } else{
-        header("Location: ../user/principal.php");
+    if($nome != ''){
+        session_start();
+        $_SESSION["cpf"] = $cpf;
+        $_SESSION["senha"] = $senha;
+        $_SESSION["nome"] = $nome;
+        $_SESSION["administrador"] = $administrador;
+        $_SESSION["foto"] = $foto;
+        if($_SESSION["administrador"] == 1){
+            header("Location: ../admin/principal.php");
+        } else{
+            header("Location: ../user/principal.php");
+        }
+    } else {
+        header("Location: ../index.php?erro=1");
+        exit();
     }
-}else{
-    header("Location: ../index.php?erro=1");
-    exit();
 }
+
 ?>

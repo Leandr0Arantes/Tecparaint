@@ -35,7 +35,6 @@ include('../funcoes/validaAdmin.php');
             </ul>
         </div>
     </header>
-    <!-- Formulário de pesquisa -->
     <div class="conteudo">
         <div class="form">
             <form action="" method="post" class="formulario">
