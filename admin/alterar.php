@@ -1,5 +1,5 @@
 <?php
-include('../funcoes/conexao.php'); // Inclui a conexão com o banco de dados
+include('../funcoes/conexao.php');
 include('../funcoes/valida.php');
 include('../funcoes/validaAdmin.php');
 ?>
@@ -21,8 +21,10 @@ include('../funcoes/validaAdmin.php');
 <body>
     <header>
         <div class="user">
-            <i class="bi bi-person-square"></i>
+            <a href="usuario.php">
+            <img src="<?php echo $_SESSION["foto"]; ?>" alt="foto de usuário">
             <p><?php echo "Olá, " . $_SESSION["nome"]; ?></p>
+            </a>
         </div>
         <div class="menu">
             <ul>
@@ -38,7 +40,6 @@ include('../funcoes/validaAdmin.php');
     <div class="conteudo">
         <div class="table">
             <table>
-                <th>ID</th>
                     <th>Nome</th>
                     <th>CPF</th>
                     <th>Administrador</th>
@@ -52,7 +53,6 @@ include('../funcoes/validaAdmin.php');
                 <tr>
                     <form action="../funcoes/alterar.php" method="post">
                         <input type="hidden" name="cpfAnterior" value="<?= $row['cpf']; ?>">
-                        <td><?= $row['id']?></td>
                         <td><input type="text" name="nome" value="<?= $row['nome']; ?>"></td>
                         <td><input type="text" name="cpf" value="<?= $row['cpf']; ?>"></td>
                         <td><input type="text" name="administrador" value="<?= $row['administrador']; ?>"></td>

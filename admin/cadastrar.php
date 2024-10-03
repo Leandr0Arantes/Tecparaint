@@ -1,5 +1,5 @@
 <?php
-include('../funcoes/conexao.php'); // Inclui a conexão com o banco de dados
+include('../funcoes/conexao.php');
 include('../funcoes/valida.php');
 include('../funcoes/validaAdmin.php');
 ?>
@@ -7,19 +7,14 @@ include('../funcoes/validaAdmin.php');
 <html lang="pt-br">
 <script>
     <?php
-    if (isset($_GET["erro"]) && $_GET["erro"] == 1) {
-    ?>
-        window.alert("Erro: Dados incorretos ou falha na inserção.");
-    <?php
-    }
-    ?>
-</script>
-<script>
-    <?php
     if (isset($_GET["sucesso"]) && $_GET["sucesso"] == 1) {
     ?>
         window.alert("Usuário inserido com sucesso!");
     <?php
+    } else if (isset($_GET["sucesso"]) && $_GET["sucesso"] == 0){
+        ?>
+        window.alert("Usuário com falha!")
+        <?php
     }
     ?>
 </script>
@@ -38,8 +33,10 @@ include('../funcoes/validaAdmin.php');
 <body>
     <header>
         <div class="user">
-            <i class="bi bi-person-square"></i>
+            <a href="usuario.php">
+            <img src="<?php echo $_SESSION["foto"]; ?>" alt="foto de usuário">
             <p><?php echo "Olá, " . $_SESSION["nome"]; ?></p>
+            </a>
         </div>
         <div class="menu">
             <ul>
@@ -74,10 +71,8 @@ include('../funcoes/validaAdmin.php');
 
         <div class="table">
             <table>
-                <th>ID</th>
                 <th>Nome</th>
                 <th>CPF</th>
-                <th>Administrador</th>
                 <th>Senha</th>
                 <?php
                 $sql = "SELECT * FROM usuarios";
@@ -85,10 +80,8 @@ include('../funcoes/validaAdmin.php');
                 while ($row = $resultado->fetch_assoc()) {
                 ?>
                     <tr>
-                        <td><?= $row['id']?></td>
                         <td><?= $row['nome']; ?></td>
                         <td><?= $row['cpf']; ?></td>
-                        <td><?= $row['administrador']; ?></td>
                         <td><?= $row['senha']; ?></td>
                     </tr>
                 <?php

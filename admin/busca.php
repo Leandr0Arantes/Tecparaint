@@ -1,5 +1,5 @@
 <?php
-include('../funcoes/conexao.php'); // Inclui a conexão com o banco de dados
+include('../funcoes/conexao.php');
 include('../funcoes/valida.php');
 include('../funcoes/validaAdmin.php');
 ?>
@@ -21,8 +21,10 @@ include('../funcoes/validaAdmin.php');
 <body>
     <header>
         <div class="user">
-            <i class="bi bi-person-square"></i>
+            <a href="usuario.php">
+            <img src="<?php echo $_SESSION["foto"]; ?>" alt="foto de usuário">
             <p><?php echo "Olá, " . $_SESSION["nome"]; ?></p>
+            </a>
         </div>
         <div class="menu">
             <ul>
