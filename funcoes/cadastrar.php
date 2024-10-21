@@ -1,22 +1,34 @@
 <?php
-
 ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 include('conexao.php');
+include('validacoes.php');
 
 $nome = $_POST["nome"];
 $cpf = $_POST["cpf"];
 $senha = $_POST["senha"];
+
+
+if(!validarNome($nome)){
+    header("Location: ../admin/cadastrar.php?erronome=1");
+    die;
+}
+
+if(!validarSenha($senha)){
+    header("Location: ../admin/cadastrar.php?errosenha=1");
+    die;
+}
+
 
 $sql = ("INSERT INTO `usuarios` (`cpf`, `nome`, `senha`) VALUES ('$cpf', '$nome', '$senha')");
 $stmt = $conn->prepare($sql);
 
 if($stmt->execute()){
     header("Location: ../admin/cadastrar.php?sucesso=1");
+    die;
 } else {
     header("Location: ../admin/cadastrar.php?sucesso=0");
+
+    die;
 }
 
 $stmt->close();

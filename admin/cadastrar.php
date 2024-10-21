@@ -5,20 +5,6 @@ include('../funcoes/validaAdmin.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
-<script>
-    <?php
-    if (isset($_GET["sucesso"]) && $_GET["sucesso"] == 1) {
-    ?>
-        window.alert("Usuário inserido com sucesso!");
-    <?php
-    } else if (isset($_GET["sucesso"]) && $_GET["sucesso"] == 0){
-        ?>
-        window.alert("Usuário com falha!")
-        <?php
-    }
-    ?>
-</script>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -92,6 +78,38 @@ include('../funcoes/validaAdmin.php');
     </div>
 
     <script>
+    <?php
+    if (isset($_GET["sucesso"]) && $_GET["sucesso"] == 1) {
+    ?>
+        window.alert("Usuário inserido com sucesso!");
+    <?php
+    } else if (isset($_GET["sucesso"]) && $_GET["sucesso"] == 0){
+        ?>
+        window.alert("Usuário com falha!")
+        <?php
+    }
+    ?>
+
+    <?php
+    if(isset($_GET["erronome"]) && $_GET["erronome"] == 1){
+    ?>
+        window.alert("Nome de usuário deve conter mais de 3 caractéres!");
+    <?php
+    }
+    ?>
+
+    <?php
+    if(isset($_GET["errosenha"]) && $_GET["errosenha"] == 1){
+    ?>
+        window.alert("A senha deve conter no mínimo 8 caracteres, 1 letra maiúscula, 1 letra minúscula e 1 número");
+    <?php
+    }
+    ?>
+    
+</script>
+
+    <script>
+        return true;
         function validarNome(nome) {
             if (nome.length < 3) {
                 return false;
