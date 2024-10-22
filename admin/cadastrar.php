@@ -105,6 +105,14 @@ include('../funcoes/validaAdmin.php');
     <?php
     }
     ?>
+
+    <?php
+    if(isset($_GET["errocpf"]) && $_GET["errocpf"] == 1){
+    ?>
+        window.alert("CPF Inválido!");
+    <?php
+    }
+    ?>
     
 </script>
 

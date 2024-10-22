@@ -8,7 +8,13 @@ include('../funcoes/validaAdmin.php');
     <?php
     if(isset($_GET["erro"]) and $_GET["erro"] == 1){
     ?>
-    window.alert("Usuário removido com sucesso!");
+        const erroDiv = document.querySelector('.erroa');
+            erroDiv.style.display = 'block'; // Mostra o elemento
+
+        // Define um timer para esconder o elemento depois de 3 segundos
+        setTimeout(() => {
+        erroDiv.style.display = 'none'; // Esconde o elemento
+        }, 3000); // 3000 milissegundos = 3 segundos
     <?php
     }
     ?>
@@ -38,15 +44,18 @@ include('../funcoes/validaAdmin.php');
         </div>
         <div class="menu">
             <ul>
-                <li class="atual"><a href="principal.php" target="_self" rel="next">Principal</a></li>
+                <li><a href="principal.php" target="_self" rel="next">Principal</a></li>
                 <li><a href="cadastrar.php" target="_self" rel="next">Cadastrar</a></li>
                 <li><a href="alterar.php" target="_self" rel="next">Alterar</a></li>
-                <li><a href="remover.php" target="_self" rel="next">Remover</a></li>
+                <li id="atual"><a href="remover.php" target="_self" rel="next">Remover</a></li>
                 <li><a href="busca.php">Buscar</a></li>
                 <li><a class="btn-sair" href="../funcoes/sair.php">Sair</a> </li>
             </ul>
         </div>
     </header>
+    <div class="erroa" id="erroa">
+        <p>Usuário Inserido com sucesso!</p>
+    </div>
     <div class="conteudo">
         <div class="table">
         <table>

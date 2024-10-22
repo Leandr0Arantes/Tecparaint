@@ -5,7 +5,7 @@ function validarNome($nome) {
     return !empty($nome) && strlen($nome) >= 3;
 }
 
-/*function validarCPF($cpf) {
+function validarCPF($cpf) {
     // Remove caracteres não numéricos
     $cpf = preg_replace('/\D/', '', $cpf);
 
@@ -30,7 +30,7 @@ function validarNome($nome) {
         }
     }
     return true;
-}*/
+}
 
 function validarSenha($senha) {
     // Verifica se a senha tem pelo menos 8 caracteres, 1 letra maiúscula, 1 letra minúscula e 1 número

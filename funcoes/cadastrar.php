@@ -18,6 +18,11 @@ if(!validarSenha($senha)){
     die;
 }
 
+if(!validarCPF($cpf)){
+    header("Location: ../admin/cadastrar.php?errocpf=1");
+    die;
+}
+
 
 $sql = ("INSERT INTO `usuarios` (`cpf`, `nome`, `senha`) VALUES ('$cpf', '$nome', '$senha')");
 $stmt = $conn->prepare($sql);
