@@ -8,16 +8,6 @@ body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.erroa {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    padding: 10em 20em;
-    background-color: red;
-    transform: translate(-50%, -50%);
-    display: none;
-}
-
 #atual{
     background-color: red;
 }

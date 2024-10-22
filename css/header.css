@@ -15,13 +15,19 @@ header{
     font-weight: bold;
 }
 
+.user i{
+    width: 50px;
+    height: 50px;
+    font-size: 50px;
+}
+
 .user img{
     width: 50px;
     height: 50px;
     border-radius: 50%;
 }
 
-.atual{
+#atual{
     background-color: #408f44;
 }
 .menu ul{

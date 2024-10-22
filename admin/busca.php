@@ -16,27 +16,42 @@ include('../funcoes/validaAdmin.php');
     <link rel="stylesheet" href="../css/form.css">
     <link rel="stylesheet" href="../css/table.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/mensagem-erro.css">
 </head>
 
 <body>
     <header>
-        <div class="user">
+    <div class="user">
             <a href="usuario.php">
-            <img src="<?php echo $_SESSION["foto"]; ?>" alt="foto de usuário">
+            <?php
+            if(!isset($_SESSION["foto"])){
+                ?>
+                
+                    <i class="bi bi-person-circle"></i>
+                <?php
+            } else {
+                ?>
+                    <img src="<?php echo $_SESSION["foto"]; ?>" alt="foto de usuário">
+                <?php
+            }
+            ?>   
             <p><?php echo "Olá, " . $_SESSION["nome"]; ?></p>
             </a>
         </div>
         <div class="menu">
             <ul>
-                <li class="atual"><a href="principal.php" target="_self" rel="next">Principal</a></li>
+                <li><a href="principal.php" target="_self" rel="next">Principal</a></li>
                 <li><a href="cadastrar.php" target="_self" rel="next">Cadastrar</a></li>
                 <li><a href="alterar.php" target="_self" rel="next">Alterar</a></li>
                 <li><a href="remover.php" target="_self" rel="next">Remover</a></li>
-                <li><a href="busca.php">Buscar</a></li>
+                <li id="atual"><a href="busca.php">Buscar</a></li>
                 <li><a class="btn-sair" href="../funcoes/sair.php">Sair</a> </li>
             </ul>
         </div>
     </header>
+    <div class="mensagem-erro" id="mensagem-erro">
+        <p>Usuário removido com sucesso!</p>
+    </div>
     <div class="conteudo">
         <div class="form">
             <form action="" method="post" class="formulario">

@@ -4,21 +4,28 @@ include('../funcoes/valida.php');
 include('../funcoes/validaAdmin.php');
 ?>
 
-<script>
-    <?php
-    if(isset($_GET["erro"]) and $_GET["erro"] == 1){
-    ?>
-        const erroDiv = document.querySelector('.erroa');
-            erroDiv.style.display = 'block'; // Mostra o elemento
+<?php
+if(isset($_GET["erro"]) and $_GET["erro"] == 1){
+?>
+    <script defer>
+        window.onload = function() {
+            const erroDiv = document.querySelector('.mensagem-erro');
+            if (erroDiv) {
+                erroDiv.style.display = 'block'; // Mostra o elemento
+                
+                // Define um timer para esconder a mensagem depois de 2 segundos (2000 milissegundos)
+                setTimeout(() => {
+                    erroDiv.style.display = 'none'; // Esconde o elemento
+                }, 2000); 
+            }
+        };
+    </script>
+<?php
+}
+?>
 
-        // Define um timer para esconder o elemento depois de 3 segundos
-        setTimeout(() => {
-        erroDiv.style.display = 'none'; // Esconde o elemento
-        }, 3000); // 3000 milissegundos = 3 segundos
-    <?php
-    }
-    ?>
-</script>
+
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -32,13 +39,25 @@ include('../funcoes/validaAdmin.php');
     <link rel="stylesheet" href="../css/form.css">
     <link rel="stylesheet" href="../css/table.css">  
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/mensagem-erro.css">
 </head>
 
 <body>
     <header>
-        <div class="user">
+    <div class="user">
             <a href="usuario.php">
-            <img src="<?php echo $_SESSION["foto"]; ?>" alt="foto de usuário">
+            <?php
+            if(!isset($_SESSION["foto"])){
+                ?>
+                
+                    <i class="bi bi-person-circle"></i>
+                <?php
+            } else {
+                ?>
+                    <img src="<?php echo $_SESSION["foto"]; ?>" alt="foto de usuário">
+                <?php
+            }
+            ?>   
             <p><?php echo "Olá, " . $_SESSION["nome"]; ?></p>
             </a>
         </div>
@@ -53,8 +72,8 @@ include('../funcoes/validaAdmin.php');
             </ul>
         </div>
     </header>
-    <div class="erroa" id="erroa">
-        <p>Usuário Inserido com sucesso!</p>
+    <div class="mensagem-erro" id="mensagem-erro">
+        <p>Usuário removido com sucesso!</p>
     </div>
     <div class="conteudo">
         <div class="table">
