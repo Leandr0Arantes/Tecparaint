@@ -50,7 +50,7 @@ include('../funcoes/validaAdmin.php');
         </div>
     </header>
     <div class="mensagem-erro" id="mensagem-erro">
-        <p>Usuário alterado com sucesso!</p>
+        <p>Usuário alterado com sucesso!!</p>
     </div>
     <div class="conteudo">
         <div class="table">
