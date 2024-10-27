@@ -24,9 +24,6 @@ if(isset($_GET["erro"]) and $_GET["erro"] == 1){
 }
 ?>
 
-
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 

@@ -18,6 +18,10 @@ body{
     flex-wrap: wrap;
 }
 
+.conteudo a{
+    text-decoration: none;
+}
+
 .container-filme{
     width: 277px;
     height: 400px;

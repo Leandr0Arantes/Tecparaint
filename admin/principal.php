@@ -77,6 +77,7 @@ include('../funcoes/adicionaFilmes.php');
         if($resultado && $resultado->num_rows > 0){
             while ($row = $resultado->fetch_assoc()) {
         ?>
+        <a href="filmes.php">
         <div class="container-filme" style="background: url(<?= $row['imagem']?>); background-size: cover;">
             <div class="container-informacoes">
             <p class="titulo"><?= $row['nome']?></p>
@@ -84,6 +85,7 @@ include('../funcoes/adicionaFilmes.php');
             </div>
 
         </div>
+        </a>
         <?php 
             }
         } else {
