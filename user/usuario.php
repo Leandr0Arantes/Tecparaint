@@ -12,22 +12,9 @@ include("../funcoes/valida.php");
 </head>
 <body>  
 <header>
-<div class="user">
-            <a href="usuario.php">
-            <?php
-            if(!isset($_SESSION["foto"])){
-                ?>
-                
-                    <i class="bi bi-person-circle"></i>
-                <?php
-            } else {
-                ?>
-                    <img src="<?php echo $_SESSION["foto"]; ?>" alt="foto de usuário">
-                <?php
-            }
-            ?>   
-            <p><?php echo "Olá, " . $_SESSION["nome"]; ?></p>
-            </a>
+        <div class="user">
+            <p>Informações do usuário</p>
+        </div>
         </div>
         <div class="menu">
             <ul>
