@@ -21,12 +21,14 @@ if($stmt){
         $_SESSION["foto"] = $foto;
         if($_SESSION["administrador"] == 1){
             header("Location: ../admin/principal.php");
+            die;
         } else{
             header("Location: ../user/principal.php");
+            die;
         }
     } else {
         header("Location: ../index.php?erro=1");
-        exit();
+        die;
     }
 }
 
