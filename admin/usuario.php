@@ -25,43 +25,45 @@ include('../funcoes/validaAdmin.php');
     </header>
 
     <div class="conteudo">
-        <div class="container"> 
-            <img src="<?php echo $_SESSION["foto"]; ?>" alt="foto de usuário">
-            <p><?php echo "Olá, " . $_SESSION["nome"]; ?></p>
-            <form action="" method="post">
-            <p>Informações</p>
-            <label for="nome">Nome completo</label>
-            <input type="text" name="nome" id="nome">
-
-            <label for="nascimento">Data de nascimento</label>
-            <input type="date" name="nascimento" id="nascimento">
-
-            <label for="email">Email</label>
-            <input type="text" name="email" id="email">
-
-            <p>Endereço</p>
-            <label for="rua">Rua</label>
-            <input type="text" name="rua" id="rua">
-
-            <label for="numero">Número</label>
-            <input type="text" name="numero" id="numero">
-
-            <label for="bairro">Bairro</label>
-            <input type="text" name="bairro" id="bairro">
-
-            <label for="cidade">Cidade</label>
-            <input type="text" name="cidade" id="cidade">
-
-            <label for="Estado">Estado</label>
-            <input type="text" name="estado" id="estado">
-
-            <label for="cep">CEP</label>
-            <input type="text" name="cep" id="cep">
-            
-            <input type="submit">
-
-        </form>
-        </div>
+            <div class="container">
+            <?php
+            if(!isset($_SESSION["foto"])){
+                ?>
+                
+                    <i class="bi bi-person-circle"></i>
+                <?php
+            } else {
+                ?>
+                    <img src="<?php echo $_SESSION["foto"]; ?>" alt="foto de usuário">
+                <?php
+            }
+            ?>   
+        <p><?php echo "Olá, " . $_SESSION["nome"]; ?></p>
+                <form action="" method="post">
+                <p>Informações</p>
+                <label for="nome">Nome completo</label>
+                <input type="text" name="nome" id="nome">
+                <label for="nascimento">Data de nascimento</label>
+                <input type="date" name="nascimento" id="nascimento">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email">
+                <p>Endereço</p>
+                <label for="rua">Rua</label>
+                <input type="text" name="rua" id="rua">
+                <label for="numero">Número</label>
+                <input type="text" name="numero" id="numero">
+                <label for="bairro">Bairro</label>
+                <input type="text" name="bairro" id="bairro">
+                <label for="cidade">Cidade</label>
+                <input type="text" name="cidade" id="cidade">
+                <label for="Estado">Estado</label>
+                <input type="text" name="estado" id="estado">
+                <label for="cep">CEP</label>
+                <input type="text" name="cep" id="cep">
+                
+                <input type="submit">
+                        </form>
+            </div>
 
         
     </div>
