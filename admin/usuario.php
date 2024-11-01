@@ -1,6 +1,6 @@
 <?php 
 include("../funcoes/valida.php");
-include('../funcoes/validaAdmin.php');
+verificarAdmin(true);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -10,6 +10,7 @@ include('../funcoes/validaAdmin.php');
     <title>Informações do usuário</title>
     <link rel="stylesheet" href="../css/usuario.css">
     <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/mensagem-erro.css">
 </head>
 <body>  
@@ -29,7 +30,6 @@ include('../funcoes/validaAdmin.php');
             <?php
             if(!isset($_SESSION["foto"])){
                 ?>
-                
                     <i class="bi bi-person-circle"></i>
                 <?php
             } else {
@@ -37,7 +37,7 @@ include('../funcoes/validaAdmin.php');
                     <img src="<?php echo $_SESSION["foto"]; ?>" alt="foto de usuário">
                 <?php
             }
-            ?>   
+            ?>     
         <p><?php echo "Olá, " . $_SESSION["nome"]; ?></p>
                 <form action="" method="post">
                 <p>Informações</p>

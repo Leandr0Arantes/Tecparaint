@@ -1,7 +1,7 @@
 <?php
 include('../funcoes/conexao.php');
 include('../funcoes/valida.php');
-include('../funcoes/validaAdmin.php');
+verificarAdmin(true);
 ?>
 
 <!DOCTYPE html>

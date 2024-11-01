@@ -1,7 +1,7 @@
 <?php
 include("../funcoes/valida.php");
-include('../funcoes/validaAdmin.php');
 include('../funcoes/adicionaFilmes.php');
+verificarAdmin(true);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

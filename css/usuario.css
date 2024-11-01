@@ -62,9 +62,3 @@ body{
 .container p {
     font-size: 20px;
 }
-
-.container i{
-    width: 100px;
-    height: 100px;
-    color: black;
-}
