@@ -1,3 +1,6 @@
+<?php
+include("/funcoes/index.php");
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -37,6 +40,25 @@
                 <?php
             }
         ?>
-        </script>
+
+        <?php
+            if(isset($_GET["errosenha"]) && $_GET["errosenha"] == 1){
+                ?>
+                window.alert("A senha deve conter no mínimo 8 caracteres, 1 letra maiúscula, 1 letra minúscula e 1 número");
+                <?php
+            }
+        ?>
+
+        <?php
+            if(isset($_GET["errocpf"]) && $_GET["errocpf"] == 1){
+                ?>
+                window.alert("CPF Inválido!");
+                <?php
+            }
+        ?>
+    </script>
+
+    <script src="../funcoes/validacoes.php"></script>
 </body>
 </html>
+

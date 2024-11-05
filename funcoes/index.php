@@ -1,7 +1,18 @@
 <?php
 include("conexao.php");
+//include("validacoes.php");
 $cpf = $_POST["cpf"];
 $senha = $_POST["senha"];
+
+/*if(!validarCPF($cpf)){
+    header("Location: ../index.php?errocpf=1");
+    die;
+}
+
+if(!validarSenha($senha)){
+    header("Location: ../index.php?errosenha=1");
+    die;
+}*/
 
 $sql = "select nome, administrador, foto from usuarios where cpf = ? and senha = ?";
 $stmt = $conn->prepare($sql);

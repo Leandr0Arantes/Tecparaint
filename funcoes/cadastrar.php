@@ -13,13 +13,13 @@ if(!validarNome($nome)){
     die;
 }
 
-if(!validarSenha($senha)){
-    header("Location: ../admin/cadastrar.php?errosenha=1");
+if(!validarCPF($cpf)){
+    header("Location: ../admin/cadastrar.php?errocpf=1");
     die;
 }
 
-if(!validarCPF($cpf)){
-    header("Location: ../admin/cadastrar.php?errocpf=1");
+if(!validarSenha($senha)){
+    header("Location: ../admin/cadastrar.php?errosenha=1");
     die;
 }
 
