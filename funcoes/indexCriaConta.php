@@ -1,26 +1,42 @@
 <?php
+ini_set('display_errors', 1);
 include('conexao.php');
+include("validacoes.php");
 
     $nome = $_POST["nome"];
     $cpf = $_POST["cpf"];
     $senha = $_POST["senha"];
 
-    $sql = ("INSERT INTO `usuarios` (`cpf`, `nome`, `senha`) VALUES ('$cpf', '$nome', '$senha')");
-    $resultado = $conn->query($sql);
-    
-    if ($resultado) {
-        // Exibe um alert e redireciona para a página 'cria_conta.php' usando JavaScript
-        echo "<script>
-            alert('Usuário cadastrado com sucesso!');
-            window.location.href = '../index.php';
-        </script>";
-    } else {
-        // Se houve erro na inserção, mostra um alerta de erro e redireciona para a página de cadastro
-        echo "<script>
-            alert('Erro ao cadastrar o usuário. Tente novamente.');
-            window.location.href = '../index.php';
-        </script>";
+    if(!validarNome($nome)){
+        header("Location: ../indexCriaConta.php?erronome=1");
+        die;
     }
-    
-    $conn->close();  // Fecha a conexão com o banco de dados
+
+    if(!validarCPF($cpf)){
+        header("Location: ../indexCriaConta.php?errocpf=1");
+        die();
+    }
+
+    if(!validarSenha($senha)){
+        header("Location: ../indexCriaConta.php?errosenha=1");
+        die();
+    }
+
+$sql = ("INSERT INTO `usuarios` (`cpf`, `nome`, `senha`) VALUES (?, ?, ?)");
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("sss", $cpf, $nome, $senha);
+
+if($stmt->execute()){
+    header("Location: ../index.php?sucesso=1");
+    die;
+} else {
+    header("Location: ../index.php?sucesso=0");
+
+    die;
+}
+
+$stmt->close();
+$conn->close();
+
+exit();
 ?>

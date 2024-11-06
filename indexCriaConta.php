@@ -33,6 +33,33 @@
     </div>
 
     <script>
+
+    <?php
+    if(isset($_GET["erronome"]) && $_GET["erronome"] == 1){
+    ?>
+        window.alert("Nome de usuário deve conter mais de 3 caractéres!");
+    <?php
+    }
+    ?>
+
+    <?php
+    if(isset($_GET["errocpf"]) && $_GET["errocpf"] == 1){
+    ?>
+        window.alert("CPF Inválido!");
+    <?php
+    }
+    ?>
+
+    <?php
+    if(isset($_GET["errosenha"]) && $_GET["errosenha"] == 1){
+    ?>
+        window.alert("A senha deve conter no mínimo 8 caracteres, 1 letra maiúscula, 1 letra minúscula e 1 número");
+    <?php
+    }
+    ?>
+    </script>
+
+    <script>
         function validarNome(nome) {
             if (nome.length < 3) {
                 return false;
@@ -150,18 +177,20 @@
 
         function validarForm() {
             const nome = document.getElementById("nome").value;
+            const cpf = document.getElementById("cpf").value;
+            const senha = document.getElementById("senha").value;
 
             if (!validarNome(nome)) {
                 alert("Nome inválido");
                 return false;
             }
 
-            if (!validarCPF()) {
+            if (!validarCPF(cpf)) {
                 alert("CPF inválido, coloque os pontos e traços.");
                 return false;
             }
 
-            if (!validarSenha()) {
+            if (!validarSenha(senha)) {
                 return false;
             }
 

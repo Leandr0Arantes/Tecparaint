@@ -4,12 +4,21 @@ include('conexao.php');
 $cpf = $_POST["cpfAtual"];
 echo $cpf;
 
-$sql = ("DELETE FROM `usuarios` WHERE cpf='$cpf'");
+$sql = ("DELETE FROM `usuarios` WHERE cpf=?");
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $cpf);
 
-if (!$resultado = $conn->query($sql)) {
-    die("erro");
+if($stmt->execute()){
+    header("Location: ../admin/alterar.php?sucesso=1");
+    die;
+} else {
+    header("Location: ../admin/alterar.php?sucesso=0");
+
+    die;
 }
 
-header("Location: ../admin/remover.php?erro=1");
+$stmt->close();
+$conn->close();
 
+exit();
 ?>

@@ -128,7 +128,6 @@ verificarAdmin(true);
     <?php
     }
     ?>
-    
 </script>
 
 <script src="../funcoes/validacoes.js"></script>

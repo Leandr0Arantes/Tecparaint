@@ -24,8 +24,9 @@ if(!validarSenha($senha)){
 }
 
 
-$sql = ("INSERT INTO `usuarios` (`cpf`, `nome`, `senha`) VALUES ('$cpf', '$nome', '$senha')");
+$sql = ("INSERT INTO `usuarios` (`cpf`, `nome`, `senha`) VALUES (?, ?, ?)");
 $stmt = $conn->prepare($sql);
+$stmt->bind_param("sss", $cpf, $nome, $senha);
 
 if($stmt->execute()){
     header("Location: ../admin/cadastrar.php?sucesso=1");

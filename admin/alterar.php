@@ -82,28 +82,17 @@ verificarAdmin(true);
         </div>
     </div>
 
+    <script>
     <?php
-if(isset($_GET["erro"]) and $_GET["erro"] == 1){
-?>
-    <script defer>
-        window.onload = function() {
-            const erroDiv = document.querySelector('.mensagem-erro');
-            if (erroDiv) {
-                erroDiv.style.display = 'block'; // Mostra o elemento
-                
-                // Define um timer para esconder a mensagem depois de 2 segundos (2000 milissegundos)
-                setTimeout(() => {
-                    erroDiv.style.display = 'none'; // Esconde o elemento
-                }, 2000); 
-            }
-        };
-    </script>
-<?php
-}
-?>
-
+    if (isset($_GET["sucesso"]) && $_GET["sucesso"] == 1) {
+    ?>
+        window.alert("Usuário alterado com sucesso!");
+    <?php
+    } else if (isset($_GET["sucesso"]) && $_GET["sucesso"] == 0){
+        ?>
+        window.alert("Usuário com falha!")
+        <?php
+    }
+    ?>
 </body>
-
-
-
 </html>
