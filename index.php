@@ -180,6 +180,7 @@ include("/funcoes/index.php");
             }
 
             if (!validarSenha(senha)) {
+                alert("CPF inválido, coloque os pontos e traços.");
                 return false;
             }
 

@@ -129,6 +129,7 @@ function validarNome(nome) {
             }
 
             if (!validarSenha(senha)) {
+                alert("Senha inválida.");
                 return false;
             }
 

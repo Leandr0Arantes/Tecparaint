@@ -1,7 +1,7 @@
 <?php
 ini_set('display_errors', 1);
 include('conexao.php');
-//include('validacoes.php')
+include('validacoes.php');
 
 $nome = $_POST["nome"];
 $cpf = $_POST["cpf"];
@@ -9,20 +9,20 @@ $senha = $_POST["senha"];
 $administrador = $_POST["administrador"];
 $cpfAnterior = $_POST["cpfAnterior"];
 
-/*if(!validarNome($nome)){
-    header("Location: ../admin/cadastrar.php?erronome=1");
+if(!validarNome($nome)){
+    header("Location: ../admin/alterar.php?erronome=1");
     die;
 }
 
 if(!validarCPF($cpf)){
-    header("Location: ../admin/cadastrar.php?errocpf=1");
+    header("Location: ../admin/alterar.php?errocpf=1");
     die;
 }
 
 if(!validarSenha($senha)){
     header("Location: ../admin/alterar.php?errosenha=1");
     die;
-}*/
+}
 
 $sql = ("UPDATE `usuarios` SET cpf = ?, nome = ?, senha = ?, administrador = '$administrador' WHERE cpf = '$cpfAnterior'");
 $stmt = $conn->prepare($sql);
