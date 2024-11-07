@@ -120,5 +120,63 @@ verificarAdmin(true);
     ?>
     </script>
 
+
+<script>
+function validarFormulario() {
+    const nome = document.querySelector('input[name="nome"]').value;
+    const cpf = document.querySelector('input[name="cpf"]').value;
+    const senha = document.querySelector('input[name="senha"]').value;
+
+    // Validação do nome: pelo menos 3 caracteres
+    if (nome.length < 3) {
+        alert("Nome de usuário deve conter mais de 3 caracteres!");
+        return false;
+    }
+
+    // Validação do CPF
+    if (!validarCPF(cpf)) {
+        alert("CPF Inválido!");
+        return false;
+    }
+
+    // Validação da senha: 8 caracteres, 1 maiúscula, 1 minúscula, e 1 número
+    const senhaRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    if (!senhaRegex.test(senha)) {
+        alert("A senha deve conter no mínimo 8 caracteres, 1 letra maiúscula, 1 letra minúscula e 1 número");
+        return false;
+    }
+
+    return true;
+}
+
+// Função de validação do CPF
+function validarCPF(cpf) {
+    cpf = cpf.replace(/\D/g, '');
+
+    if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) {
+        return false;
+    }
+
+    for (let t = 9; t < 11; t++) {
+        let d = 0;
+        for (let c = 0; c < t; c++) {
+            d += cpf[c] * ((t + 1) - c);
+        }
+        d = ((10 * d) % 11) % 10;
+        if (cpf[t] != d) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+// Adiciona o evento de validação ao formulário
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelector('form').onsubmit = validarFormulario;
+});
+</script>
+
+
 </body>
 </html>
