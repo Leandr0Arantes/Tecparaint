@@ -1,5 +1,5 @@
 <?php
-include("/funcoes/index.php");
+include("../funcoes/index.phpw");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

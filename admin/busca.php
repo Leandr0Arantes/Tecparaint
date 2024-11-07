@@ -55,7 +55,7 @@ verificarAdmin(true);
     <div class="conteudo">
         <div class="form">
             <form action="" method="post" class="formulario">
-                <p>Fazer cadastro</p>
+                <p>Fazer busca</p>
                 <div class="form-input" id="inputNome">
                     <label for="nome">Nome:</label>
                     <input type="text" name="nome" id="nome" placeholder="Digite seu nome">
