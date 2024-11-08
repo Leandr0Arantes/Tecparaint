@@ -1,5 +1,5 @@
 <?php
-include("../funcoes/index.phpw");
+include("funcoes/validacoes.php"); 
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -195,4 +195,3 @@ include("../funcoes/index.phpw");
     </script>
 </body>
 </html>
-
