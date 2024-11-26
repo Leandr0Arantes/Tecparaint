@@ -20,35 +20,8 @@ verificarAdmin(true);
 </head>
 
 <body>
-    <header>
-    <div class="user">
-            <a href="usuario.php">
-            <?php
-            if(!isset($_SESSION["foto"])){
-                ?>
-                
-                    <i class="bi bi-person-circle"></i>
-                <?php
-            } else {
-                ?>
-                    <img src="<?php echo $_SESSION["foto"]; ?>" alt="foto de usuário">
-                <?php
-            }
-            ?>   
-            <p><?php echo "Olá, " . $_SESSION["nome"]; ?></p>
-            </a>
-        </div>
-        <div class="menu">
-            <ul>
-                <li><a href="principal.php" target="_self" rel="next">Principal</a></li>
-                <li><a href="cadastrar.php" target="_self" rel="next">Cadastrar</a></li>
-                <li id="atual"><a href="alterar.php" target="_self" rel="next">Alterar</a></li>
-                <li><a href="remover.php" target="_self" rel="next">Remover</a></li>
-                <li><a href="busca.php">Buscar</a></li>
-                <li><a class="btn-sair" href="../funcoes/sair.php">Sair</a> </li>
-            </ul>
-        </div>
-    </header>
+    <?php include("../includes/header.php")?>
+    
     <div class="mensagem-erro" id="mensagem-erro">
         <p>Usuário alterado com sucesso!!</p>
     </div>
@@ -59,6 +32,7 @@ verificarAdmin(true);
                     <th>CPF</th>
                     <th>Administrador</th>
                     <th>Senha</th>
+                    <th>Alterar</th>
                     <th>Remover</th>
                 <?php
                 $sql = "SELECT * FROM usuarios";
@@ -74,6 +48,12 @@ verificarAdmin(true);
                         <td><input type="text" name="senha" value="<?= $row['senha']; ?>"></td>
                         <td><input type="submit" value="Alterar" class="btn-input"></td>
                     </form>
+                    <form action="../funcoes/remover.php" method="post">
+                            <td>
+                                <input type="hidden" name="cpfAtual" value="<?= $row['cpf']; ?>">
+                                <input type="submit" value="Remover" class="btn-input">
+                            </td>
+                        </form>
                 </tr>
                 <?php
                 }

@@ -17,9 +17,10 @@ header{
 }
 
 .user i{
+    text-align: center;
     width: 50px;
     height: 50px;
-    font-size: 50px;
+    font-size: 43px;
 }
 
 .user img{
@@ -45,6 +46,7 @@ header{
 }
 
 .menu ul li{
+    position: relative;
     background-color: #4CAF50;
     padding: 10px;
 }
@@ -59,6 +61,36 @@ header{
 .menu ul li:hover{
     background-color: #408f44;
     transition: 1s;
+}
+
+/* Submenu escondido por padrão */
+.menu ul .submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    z-index: 1000;
+}
+
+.menu ul .submenu li {
+    margin: 0;
+}
+
+.menu ul .submenu li a {
+    text-align: center;
+    padding: 8px;
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+.menu ul .submenu-parent:hover .submenu {
+    display: block;
 }
 
 /* Formulário de pesquisa */

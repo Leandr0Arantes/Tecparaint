@@ -29,10 +29,10 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("sss", $cpf, $nome, $senha);
 
 if($stmt->execute()){
-    header("Location: ../admin/cadastrar.php?sucesso=1");
+    header("Location: ../admin/cadastrar_usuario.php?sucesso=1");
     die;
 } else {
-    header("Location: ../admin/cadastrar.php?sucesso=0");
+    header("Location: ../admin/cadastrar_usuario.php?sucesso=0");
 
     die;
 }

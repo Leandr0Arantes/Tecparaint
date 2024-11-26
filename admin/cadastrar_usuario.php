@@ -18,58 +18,8 @@ verificarAdmin(true);
 </head>
 
 <body>
-    <header>
-    <div class="user">
-            <a href="usuario.php">
-            <?php
-            if(!isset($_SESSION["foto"])){
-                ?>
-                
-                    <i class="bi bi-person-circle"></i>
-                <?php
-            } else {
-                ?>
-                    <img src="<?php echo $_SESSION["foto"]; ?>" alt="foto de usuário">
-                <?php
-            }
-            ?>   
-            <p><?php echo "Olá, " . $_SESSION["nome"]; ?></p>
-            </a>
-        </div>
-        <div class="menu">
-            <ul>
-                <li><a href="principal.php" target="_self" rel="next">Principal</a></li>
-                <li id="atual"><a href="cadastrar.php" target="_self" rel="next">Cadastrar</a></li>
-                <li><a href="alterar.php" target="_self" rel="next">Alterar</a></li>
-                <li><a href="remover.php" target="_self" rel="next">Remover</a></li>
-                <li><a href="busca.php">Buscar</a></li>
-                <li><a class="btn-sair" href="../funcoes/sair.php">Sair</a> </li>
-            </ul>
-        </div>
-    </header>
-    <div class="mensagem-erro" id="mensagem-erro">
-        <p>Usuário removido com sucesso!</p>
-    </div>
-    <div class="conteudo">
-        <div class="form">
-            <form action="../funcoes/cadastrar.php" method="post" class="formulario">
-                <p>Fazer cadastro</p>
-                <div class="form-input">
-                    <label for="nome">Nome:</label>
-                    <input type="text" name="nome" id="nome" required placeholder="Digite seu nome">
-                </div>
-                <div class="form-input">
-                    <label for="cpf">CPF:</label>
-                    <input type="text" name="cpf" id="cpf" required placeholder="Digite seu cpf">
-                </div>
-                <div class="form-input">
-                    <label for="senha">Senha:</label>
-                    <input type="password" name="senha" id="senha" required placeholder="Digite sua senha">
-                </div>
-                <input type="submit" value="Salvar" class="btn">
-            </form>
-        </div>
-
+        <?php include("../includes/header.php")?>
+        <div class="conteudo">
         <div class="table">
             <table>
                 <th>Nome</th>
@@ -90,7 +40,7 @@ verificarAdmin(true);
                 ?>
             </table>
         </div>
-    </div>
+        </div>  
 
     <script>
     <?php
