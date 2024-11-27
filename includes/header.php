@@ -32,22 +32,14 @@
         if ($_SESSION["administrador"] == 1) {
         ?>
             <nav class="menu">
-                <!--
-        <div class="categoria-form">
-            <form action="" method="get">
-                <input type="text" name="pesquisar" id="pesquisar">
-                <button type="submit"><i class="bi bi-search"></i></button>
-            </form>
-        </div>
-        -->
                 <ul>
-                    <li><a href="principal.php" target="_self" rel="next">Filmes</a></li>
+                    <li><a href="filmes.php">Filmes</a></li>
                     <li class="submenu-parent">
                         <a href="#">Cadastrar</a>
                         <ul class="submenu">
                             <li><a href="cadastrar_usuario.php">Usuários</a></li>
-                            <li><a href="cadastro2.php">Filmes</a></li>
-                            <li><a href="cadastro3.php">Gêneros</a></li>
+                            <li><a href="cadastrar_filme.php">Filmes</a></li>
+                            <li><a href="cadastrar_genero.php">Gêneros</a></li>
                         </ul>
                     </li>
                     <li class="submenu-parent">
@@ -62,28 +54,20 @@
                 </ul>
             </nav>
         <?php
-        } else{
+        } else {
         ?>
             <nav class="menu">
-            <!--
-    <div class="categoria-form">
-        <form action="" method="get">
-            <input type="text" name="pesquisar" id="pesquisar">
-            <button type="submit"><i class="bi bi-search"></i></button>
-        </form>
-    </div>
-    -->
-            <ul>
-                <li><a href="principal.php" target="_self" rel="next">Filmes</a></li>
-                <li class="submenu-parent">
-                    <a href="#">Alterar</a>
-                    <ul class="submenu">
-                        <li><a href="alterar_usuario.php">Usuários</a></li>
-                    </ul>
-                </li>
-                <li><a class="btn-sair" href="../funcoes/sair.php">Sair</a></li>
-            </ul>
-        </nav>
+                <ul>
+                    <li><a href="filmes.php">Filmes</a></li>
+                    <li class="submenu-parent">
+                        <a href="#">Alterar</a>
+                        <ul class="submenu">
+                            <li><a href="alterar_usuario.php">Usuários</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="btn-sair" href="../funcoes/sair.php">Sair</a></li>
+                </ul>
+            </nav>
         <?php
         }
         ?>

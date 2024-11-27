@@ -31,10 +31,10 @@ if($stmt){
         $_SESSION["administrador"] = $administrador;
         $_SESSION["foto"] = $foto;
         if($_SESSION["administrador"] == 1){
-            header("Location: ../admin/principal.php");
+            header("Location: ../admin/filmes.php");
             die;
         } else{
-            header("Location: ../user/principal.php");
+            header("Location: ../user/filmes.php");
             die;
         }
     } else {

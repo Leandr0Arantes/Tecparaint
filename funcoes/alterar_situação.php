@@ -1,12 +1,11 @@
 <?php 
 include('conexao.php');
 
-$cpf = $_POST["cpfAtual"];
-echo $cpf;
+$idAtual = $_POST["idAtual"];
 
-$sql = ("DELETE FROM `usuarios` WHERE cpf=?");
+$sql = ("UPDATE generos SET status = 1 WHERE $idAtual = id");
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("s", $cpf);
+$stmt->bind_param("s", $idAtual);
 
 if($stmt->execute()){
     header("Location: ../admin/alterar_usuario.php?removido=1");

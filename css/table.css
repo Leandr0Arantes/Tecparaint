@@ -2,17 +2,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 65%;
+    width: 90%;
 }
 
 .table table {
-    width: 55em;
+    width: 95em;
     border-collapse: collapse;
 }
 
 .table table th {
     border: 1px solid black;
-    padding: 15px;
+    padding: 5px;
     background-color: rgb(176, 176, 176);
     font-size: 20px;
 }
@@ -23,7 +23,7 @@
 }
 
 .table table td {
-    padding: 15px;
+    padding: 5px;
     border: 1px solid black;
     text-align: center;
 
