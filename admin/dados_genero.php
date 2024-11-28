@@ -43,6 +43,20 @@ verificarAdmin(true);
             padding: 10px;
             margin-left: 20px;
         }
+
+        .table a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .table button {
+            background: none;
+            border: none;
+        }
+
+        .table button i {
+            font-size: 20px;
+        }
     </style>
 </head>
 
@@ -85,14 +99,14 @@ verificarAdmin(true);
                                 } else {
                                     echo ("Desativado");
                                 } ?></td>
-                            <td><input type="submit" value="Alterar" class="btn-input"></td>
+                            <td><button type="submit" value="Alterar" class="btn-input"><i class="bi bi-pencil-square"></i></button></td>
                             </form>
                             </form>
                             <td>
                                 <form action="../funcoes/alterar_situação.php" method="post">
                                     <input type="hidden" name="idAtual" value="<?= $row['id']; ?>">
                                     <input type="hidden" name="statusAtual" value="<?= $row['status']; ?>">
-                                    <input type="submit" value="Alterar situação" class="btn-input">
+                                    <button type="submit" value="Alterar situação" class="btn-input"><i class="bi bi-trash-fill"></i></button>
                             </td>
                             </form>
                         </tr>
