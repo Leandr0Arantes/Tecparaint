@@ -35,19 +35,11 @@
                 <ul>
                     <li><a href="filmes.php">Filmes</a></li>
                     <li class="submenu-parent">
-                        <a href="#">Cadastrar</a>
+                        <a href="#">Cadastro</a>
                         <ul class="submenu">
-                            <li><a href="cadastrar_usuario.php">Usuários</a></li>
+                            <li><a href="dados_usuario.php">Usuários</a></li>
                             <li><a href="cadastrar_filme.php">Filmes</a></li>
-                            <li><a href="cadastrar_genero.php">Gêneros</a></li>
-                        </ul>
-                    </li>
-                    <li class="submenu-parent">
-                        <a href="#">Alterar</a>
-                        <ul class="submenu">
-                            <li><a href="alterar_usuario.php">Usuários</a></li>
-                            <li><a href="cadastro2.php">Filmes</a></li>
-                            <li><a href="cadastro3.php">Gêneros</a></li>
+                            <li><a href="dados_genero.php">Gêneros</a></li>
                         </ul>
                     </li>
                     <li><a class="btn-sair" href="../funcoes/sair.php">Sair</a></li>

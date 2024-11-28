@@ -19,6 +19,12 @@ if (isset($_GET['status'])) {
     $status = '';
 }
 
+if (isset($_GET['nome'])) {
+    $status = $_GET['nome'];
+} else {
+    $status = '';
+}
+
 if ($id == 1) {
     $sql = "SELECT * FROM generos ORDER BY id DESC";
     $stmt = $conn->prepare($sql);
@@ -46,6 +52,16 @@ if ($id == 1) {
         $resultado = $stmt->get_result();
 } else if ($status == 0) {
         $sql = "SELECT * FROM generos ORDER BY status ASC";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+} else if ($nome == 1) {
+        $sql = "SELECT * FROM usuarios ORDER BY nome DESC";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+} else if ($nome == 0) {
+        $sql = "SELECT * FROM usuarios ORDER BY nome ASC";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $resultado = $stmt->get_result();

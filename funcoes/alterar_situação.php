@@ -13,10 +13,10 @@ if($status == 1){
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $idAtual);
 if($stmt->execute()){
-    header("Location: ../admin/cadastrar_genero.php");
+    header("Location: ../admin/dados_genero.php?alterar=1");
     die;
 } else {
-    header("Location: ../admin/cadastrar_genero.php");
+    header("Location: ../admin/dados_genero.php?alterar=0");
     die;
 }
 

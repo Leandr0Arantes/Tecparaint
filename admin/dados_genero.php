@@ -49,25 +49,9 @@ verificarAdmin(true);
 <body>
     <?php include("../includes/header.php") ?>
     <div class="interacao">
-        <a href="#">Incluir gênero</a>
+        <a href="cadastro_genero.php">Incluir gênero</a>
     </div>
     <div class="conteudo">
-        <!--
-        <div class="form">
-        <form method="post" action="./funcoes/indexCriaConta.php" class="formulario">
-            <p>Cadastrar gênero</p>
-            <div class="form-input">
-                <label for="nome">Nome</label>
-                <input type="text" name="nome" id="nome" required placeholder="Digite seu nome">
-            </div>
-            <div class="form-input">
-                <label for="cpf">Descrição</label>
-                <input type="text" name="descricao" id="descricao" required placeholder="Digite seu cpf">
-            </div>
-            <input type="submit" value="Cadastrar" class="btn">
-        </form>
-        </div>
-        -->
         <?php
         // Verifica o valor atual de 'id' na URL
         $currentId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
@@ -80,9 +64,9 @@ verificarAdmin(true);
         ?>
         <div class="table">
             <table>
-                <th><a href="cadastrar_genero.php?id=<?= $newId ?>">ID</a></th>
-                <th><a href="cadastrar_genero.php?categoria=<?= $newCategoria ?>">Categoria</a></th>
-                <th><a href="cadastrar_genero.php?status=<?= $newStatus ?>">Situação</a></th>
+                <th><a href="dados_genero.php?id=<?= $newId ?>">ID</a></th>
+                <th><a href="dados_genero.php?categoria=<?= $newCategoria ?>">Categoria</a></th>
+                <th><a href="dados_genero.php?status=<?= $newStatus ?>">Situação</a></th>
                 <th colspan="2">Ações</th>
                 <?php
                 if ($resultado && $resultado->num_rows > 0) {
@@ -91,13 +75,18 @@ verificarAdmin(true);
                 ?>
                         <tr>
                             <td><?= $row['id']; ?></td>
-                            <td><?= $row['categoria']; ?></td>
-                            <td><?php if($row['status']){echo("Ativo");} else {echo("Desativado");}?></td>
-                            <form action="../funcoes/alterar.php" method="post">
-                                <td>
-                                    <input type="hidden" name="idAnterior" value="<?= $row['id']; ?>">
-                                    <input type="submit" value="Alterar" class="btn-input">
-                                </td>
+                            <td>
+                                <form action="../funcoes/alterar_genero.php" method="post">
+                                    <input type="hidden" name="categoriaAtual" value="<?= $row['categoria']; ?>">
+                                    <input type="text" name="categoria" value="<?= $row['categoria']; ?>">
+                            </td>
+                            <td><?php if ($row['status']) {
+                                    echo ("Ativo");
+                                } else {
+                                    echo ("Desativado");
+                                } ?></td>
+                            <td><input type="submit" value="Alterar" class="btn-input"></td>
+                            </form>
                             </form>
                             <td>
                                 <form action="../funcoes/alterar_situação.php" method="post">
@@ -121,11 +110,35 @@ verificarAdmin(true);
         <?php
         if (isset($_GET["sucesso"]) && $_GET["sucesso"] == 1) {
         ?>
-            window.alert("Usuário inserido com sucesso!");
+            window.alert("Gênero cadastrado com sucesso!");
         <?php
         } else if (isset($_GET["sucesso"]) && $_GET["sucesso"] == 0) {
         ?>
-            window.alert("Usuário com falha!")
+            window.alert("Gênero com falha!")
+        <?php
+        }
+        ?>
+
+        <?php
+        if (isset($_GET["alterar"]) && $_GET["alterar"] == 1) {
+        ?>
+            window.alert("Situação alterada com sucesso!");
+        <?php
+        } else if (isset($_GET["alterar"]) && $_GET["alterar"] == 0) {
+        ?>
+            window.alert("Situação com falha!")
+        <?php
+        }
+        ?>
+
+        <?php
+        if (isset($_GET["alterado"]) && $_GET["alterado"] == 1) {
+        ?>
+            window.alert("Situação alterada com sucesso!");
+        <?php
+        } else if (isset($_GET["alterado"]) && $_GET["alterado"] == 0) {
+        ?>
+            window.alert("Situação com falha!")
         <?php
         }
         ?>
