@@ -2,17 +2,21 @@
 include('conexao.php');
 
 $idAtual = $_POST["idAtual"];
+$status = $_POST["statusAtual"];
 
-$sql = ("UPDATE generos SET status = 1 WHERE $idAtual = id");
+if($status == 1){
+    $sql = ("UPDATE generos SET status = 0 WHERE id = ?");
+} else {
+    $sql = ("UPDATE generos SET status = 1 WHERE id = ?");
+}
+
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("s", $idAtual);
-
+$stmt->bind_param("i", $idAtual);
 if($stmt->execute()){
-    header("Location: ../admin/alterar_usuario.php?removido=1");
+    header("Location: ../admin/cadastrar_genero.php");
     die;
 } else {
-    header("Location: ../admin/alterar_usuario.php?removido=0");
-
+    header("Location: ../admin/cadastrar_genero.php");
     die;
 }
 

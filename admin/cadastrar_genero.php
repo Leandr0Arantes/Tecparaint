@@ -102,6 +102,7 @@ verificarAdmin(true);
                             <td>
                                 <form action="../funcoes/alterar_situação.php" method="post">
                                     <input type="hidden" name="idAtual" value="<?= $row['id']; ?>">
+                                    <input type="hidden" name="statusAtual" value="<?= $row['status']; ?>">
                                     <input type="submit" value="Alterar situação" class="btn-input">
                             </td>
                             </form>
