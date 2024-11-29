@@ -37,7 +37,7 @@ verificarAdmin(true);
                 ?>
                     <tr>
                         <form action="../funcoes/alterar.php" method="post">
-                            <input type="hidden" name="cpfAnterior" value="<?= $row['cpf'.$cont]; ?>">
+                            <input type="hidden" name="cpfAnterior" value="<?= $row['cpf']; ?>">
                             <td><input type="text" name="nome" value="<?= $row['nome']; ?>"></td>
                             <td><input type="text" name="cpf" value="<?= $row['cpf']; ?>"></td>
                             <td><input type="text" name="administrador" value="<?= $row['administrador']; ?>"></td>

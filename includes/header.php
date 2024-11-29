@@ -38,7 +38,7 @@
                         <a href="#">Cadastro</a>
                         <ul class="submenu">
                             <li><a href="dados_usuario.php">Usuários</a></li>
-                            <li><a href="cadastrar_filme.php">Filmes</a></li>
+                            <li><a href="dados_filme.php">Filmes</a></li>
                             <li><a href="dados_genero.php">Gêneros</a></li>
                         </ul>
                     </li>

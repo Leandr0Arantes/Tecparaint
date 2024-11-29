@@ -1,6 +1,6 @@
 <?php
 include('../funcoes/valida.php');
-include('../funcoes/filtro.php');
+include('../funcoes/filtro_genero.php');
 verificarAdmin(true);
 ?>
 <!DOCTYPE html>
@@ -94,16 +94,12 @@ verificarAdmin(true);
                                     <input type="hidden" name="categoriaAtual" value="<?= $row['categoria']; ?>">
                                     <input type="text" name="categoria" value="<?= $row['categoria']; ?>">
                             </td>
-                            <td><?php if ($row['status']) {
-                                    echo ("Ativo");
-                                } else {
-                                    echo ("Desativado");
-                                } ?></td>
+                            <td><?php echo $row['status'] ? "Ativo" : "Inativo"; ?>
                             <td><button type="submit" value="Alterar" class="btn-input"><i class="bi bi-pencil-square"></i></button></td>
                             </form>
                             </form>
                             <td>
-                                <form action="../funcoes/alterar_situação.php" method="post">
+                                <form action="../funcoes/alterar_situacao_genero.php" method="post">
                                     <input type="hidden" name="idAtual" value="<?= $row['id']; ?>">
                                     <input type="hidden" name="statusAtual" value="<?= $row['status']; ?>">
                                     <button type="submit" value="Alterar situação" class="btn-input"><i class="bi bi-trash-fill"></i></button>

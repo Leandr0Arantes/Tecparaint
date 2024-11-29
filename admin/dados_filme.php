@@ -1,7 +1,7 @@
 <?php
 include('../funcoes/conexao.php');
 include('../funcoes/valida.php');
-include('../funcoes/filtro_usuario.php');
+include('../funcoes/filtro_filme.php');
 verificarAdmin(true);
 ?>
 <!DOCTYPE html>
@@ -75,7 +75,7 @@ verificarAdmin(true);
         <?php
         // Verifica o valor atual de 'id' na URL
         $currentNome = isset($_GET['nome']) ? (int)$_GET['nome'] : 0;
-        $currentCPF = isset($_GET['cpf']) ? (int)$_GET['cpf'] : 0;
+        $currentDescricao = isset($_GET['descricao']) ? (int)$_GET['descricao'] : 0;
         $currentSenha = isset($_GET['senha']) ? (int)$_GET['senha'] : 0;
         $currentADM = isset($_GET['administrador']) ? (int)$_GET['administrador'] : 0;
         $currentStatus = isset($_GET['status']) ? (int)$_GET['status'] : 0;
