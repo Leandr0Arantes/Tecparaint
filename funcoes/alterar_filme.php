@@ -1,20 +1,24 @@
 <?php
 ini_set('display_errors', 1);
 include('conexao.php');
+include('validacoes.php');
 
+$id = $_POST["id"];
+$idAtual = $_POST["idAtual"];
 $nome = $_POST["nome"];
 $descricao = $_POST["descricao"];
 $imagem = $_POST["imagem"];
 
-$sql = ("INSERT INTO `filmes` (`nome`, `descricao`, `imagem`) VALUES (?, ?, ?)");
+$sql = ("UPDATE `filmes` SET nome = ?, descricao = ?, imagem = ? WHERE id = '$idAtual'");
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("sss", $nome, $descricao, $imagem);
 
 if($stmt->execute()){
-    header("Location: ../admin/dados_filme.php?sucesso=1");
+    header("Location: ../admin/dados_filme.php?alterado=1");
     die;
 } else {
-    header("Location: ../admin/dados_filme.php?sucesso=1");
+    header("Location: ../admin/dados_filme.php?alterado=0");
+
     die;
 }
 
@@ -23,3 +27,4 @@ $conn->close();
 
 exit();
 ?>
+

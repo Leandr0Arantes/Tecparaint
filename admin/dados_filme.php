@@ -10,7 +10,7 @@ verificarAdmin(true);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar Usuário</title>
+    <title>Filmes</title>
     <link rel="stylesheet" href="../css/cadastrar.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/form.css">
@@ -69,30 +69,30 @@ verificarAdmin(true);
 <body>
     <?php include("../includes/header.php") ?>
     <div class="interacao">
-        <a href="cadastro_usuario.php">Incluir usuário</a>
+        <a href="cadastro_filme.php">Incluir filme</a>
     </div>
     <div class="conteudo">
         <?php
         // Verifica o valor atual de 'id' na URL
+        $currentId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
         $currentNome = isset($_GET['nome']) ? (int)$_GET['nome'] : 0;
         $currentDescricao = isset($_GET['descricao']) ? (int)$_GET['descricao'] : 0;
-        $currentSenha = isset($_GET['senha']) ? (int)$_GET['senha'] : 0;
-        $currentADM = isset($_GET['administrador']) ? (int)$_GET['administrador'] : 0;
+        $currentImagem = isset($_GET['imagem']) ? (int)$_GET['imagem'] : 0;
         $currentStatus = isset($_GET['status']) ? (int)$_GET['status'] : 0;
         // Alterna entre 1 e 0
+        $newId = $currentId === 1 ? 0 : 1;
         $newNome = $currentNome === 1 ? 0 : 1;
-        $newCPF = $currentCPF === 1 ? 0 : 1;
-        $newSenha = $currentSenha === 1 ? 0 : 1;
-        $newADM = $currentADM === 1 ? 0 : 1;
+        $newDescricao = $currentDescricao === 1 ? 0 : 1;
+        $newImagem = $currentImagem === 1 ? 0 : 1;
         $newStatus = $currentStatus === 1 ? 0 : 1;
         ?>
         <div class="table">
             <table>
-                <th><a href="dados_usuario.php?nome=<?= $newNome ?>">Nome</a></th>
-                <th><a href="dados_usuario.php?cpf=<?= $newCPF ?>">CPF</a></th>
-                <th><a href="dados_usuario.php?senha=<?= $newSenha ?>">Senha</a></th>
-                <th><a href="dados_usuario.php?administrador=<?= $newADM ?>">Administrador</a></th>
-                <th><a href="dados_usuario.php?status=<?= $newStatus ?>">Status</a></th>
+                <th><a href="dados_filme.php?id=<?= $newId ?>">ID</a></th>
+                <th><a href="dados_filme.php?nome=<?= $newNome ?>">Nome</a></th>
+                <th><a href="dados_filme.php?descricao=<?= $newDescricao ?>">Descrição</a></th>
+                <th><a href="dados_filme.php?imagem=<?= $newImagem ?>">URL da imagem</a></th>
+                <th><a href="dados_filme.php?status=<?= $newStatus ?>">Status</a></th>
                 <th colspan="2">Ações</th>
                 <?php
                 if ($resultado && $resultado->num_rows > 0) {
@@ -100,20 +100,18 @@ verificarAdmin(true);
                     while ($row = $resultado->fetch_assoc()) {
                 ?>
                         <tr>
-                            <form action="../funcoes/alterar_usuario.php" method="post">
+                            <td><?= $row['id']; ?></td>
+                            <form action="../funcoes/alterar_filme.php" method="post">
+                                <input type="hidden" name="idAtual" value="<?= $row['id']; ?>">
                                 <td><input type="text" name="nome" value="<?= $row['nome']; ?>"></td>
-                                <td>
-                                    <input type="text" name="cpf" value="<?= $row['cpf']; ?>">
-                                    <input type="hidden" name="cpfAnterior" value="<?= $row['cpf']; ?>">
-                                </td>
-                                <td><input type="text" name="senha" value="<?= $row['senha']; ?>"></td>
-                                <td><input type="text" name="administrador" value="<?= $row['administrador']; ?>"></td>
+                                <td><input type="text" name="descricao" value="<?= $row['descricao']; ?>"></td>
+                                <td><input type="text" name="imagem" value="<?= $row['imagem']; ?>"></td>
                                 <td><?php echo $row['status'] ? "Ativo" : "Inativo"; ?></td>
                                 <td><button type="submit" value="Alterar" class="btn-input"><i class="bi bi-pencil-square"></i></button></td>
                             </form>
                             <td>
-                                <form action="../funcoes/alterar_situacao_usuario.php" method="post">
-                                    <input type="hidden" name="cpfAtual" value="<?= $row['cpf']; ?>">
+                                <form action="../funcoes/alterar_situacao_filme.php" method="post">
+                                    <input type="hidden" name="idAtual" value="<?= $row['id']; ?>">
                                     <input type="hidden" name="statusAtual" value="<?= $row['status']; ?>">
                                     <button type="submit" value="Alterar situação" class="btn-input"><i class="bi bi-trash-fill"></i></button>
                                 </form>

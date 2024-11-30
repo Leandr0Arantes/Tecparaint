@@ -1,19 +1,28 @@
+<?php
+include("../funcoes/conexao.php");
+?>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/categorias.css">
+</head>
 <div class="categorias">
-        <div class="categorias-links">
-        <p>Categorias</p>  
-            <ul>
-                <li><a href="principal.php">Todos os filmes</a></li>
-                <li><a href="principal.php?categoria=acao">Ação</a></li>
-                <li><a href="principal.php?categoria=aventura">Aventura</a></li>
-                <li><a href="principal.php?categoria=comedia">Comédia</a></li>
-                <li><a href="principal.php?categoria=drama">Drama</a></li>
-                <li><a href="principal.php?categoria=ficcao">Ficção científica</a></li>
-                <li><a href="principal.php?categoria=terror">Terror</a></li>
-                <li><a href="principal.php?categoria=romance">Romance</a></li>
-                <li><a href="principal.php?categoria=animacao">Animação</a></li>
-                <li><a href="principal.php?categoria=biografia">Biografia</a></li>
-                <li><a href="principal.php?categoria=documentario">Documentario</a></li>
-                <li><a href="principal.php?categoria=thriller">Thriller</a></li>
-            </ul>
+<p>Categorias</p>
+    <div class="categorias-itens">
+        <div class="item">
+            <a href="filmes.php">Todos os filmes</a>
         </div>
+        <?php
+        $sql = "SELECT id, categoria FROM generos WHERE status = 1";
+        $resultado = $conn->query($sql);
+        while ($row = $resultado->fetch_assoc()) {
+        ?>
+            <div class="item">
+                <a href="filmes.php?id=<?= $row['id']; ?>"><?= $row['categoria']; ?></a>
+            </div>
+        <?php
+        }
+        ?>
     </div>
+</div>

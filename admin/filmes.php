@@ -1,6 +1,5 @@
 <?php
 include("../funcoes/valida.php");
-include('../funcoes/adicionaFilmes.php');
 verificarAdmin(true);
 ?>
 <!DOCTYPE html>
@@ -13,13 +12,12 @@ verificarAdmin(true);
     <link rel="stylesheet" href="../css/principal.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../css/mensagem-erro.css">
-    <link rel="stylesheet" href="../css/categorias.css">
 </head>
 
 <body>
     <?php include("../includes/header.php")?>
     <?php include("../includes/categorias.php")?>
+    <?php include('../funcoes/adicionaFilmes.php');?>
     <div class="conteudo">
         <?php
         if($resultado && $resultado->num_rows > 0){

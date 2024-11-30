@@ -1,12 +1,11 @@
 <?php 
 include('conexao.php');
 
-if(isset($_GET['categoria'])){
-    $categoria = $_GET['categoria'];
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
 } else {
-    $categoria = '';
+    $id = '';
 }
-
 if(isset($_GET['pesquisar'])){
     $pesquisar = $_GET['pesquisar'];
 } else {
@@ -19,14 +18,14 @@ if($pesquisar){
     $stmt->bind_param('s', $pesquisar);
     $stmt->execute();
     $resultado = $stmt->get_result();
-}else if ($categoria) {
-    $sql = "SELECT * FROM filmes WHERE categoria = ?";
+}else if ($id) {
+    $sql = "SELECT * FROM filmes WHERE genero_id = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param('s', $categoria);
+    $stmt->bind_param('i', $id);
     $stmt->execute();
     $resultado = $stmt->get_result();
 } else {
-    $sql = "SELECT * FROM filmes";
+    $sql = "SELECT * FROM filmes WHERE status = 1";
     $resultado = $conn->query($sql);
 }
 ?>
