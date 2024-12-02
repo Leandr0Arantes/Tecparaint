@@ -2,9 +2,7 @@
 ini_set('display_errors', 1);
 include('conexao.php');
 
-$nome = $_POST["nome"];
-$descricao = $_POST["descricao"];
-$imagem = $_POST["imagem"];
+$categoria = $_POST["categoria"];
 
 $sql = ("INSERT INTO `filmes` (`nome`, `descricao`, `imagem`) VALUES (?, ?, ?)");
 $stmt = $conn->prepare($sql);

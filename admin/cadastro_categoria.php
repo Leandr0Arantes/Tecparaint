@@ -1,3 +1,6 @@
+<?php 
+    include("../funcoes/conexao.php")
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -15,28 +18,23 @@
         <form method="post" action="../funcoes/cadastrar_categoria.php" class="formulario">
             <p>Cadastrar novo gênero</p>
             <div class="form-input">
-                <label for="categoria">Nome</label>
+                <label for="nome">Nome</label>
                 <input type="text" name="categoria" id="categoria" required placeholder="Digite o nome do gênero">
             </div>
-            <label>Escolha uma categoria</label>
-            <input type="text" id="categorias" name="categorias" readonly onclick="mostrarCategorias()" placeholder="Clique para escolher uma categoria">
-            <div id="categorias-lista" class="categorias-lista">
-                <ul>
-                    <li><a href="#" onclick="selecionarCategoria('Categoria')">Categoria 1</a></li>
-                </ul>
+            <div class="form-input">
+                <label for="categoria">Escolha uma categoria</label>
+                <select name="categoria" id="categoria">
                 <?php
-                $sql = "SELECT categoria FROM generos WHERE status = 1";
+                $sql = "SELECT id,categoria FROM generos WHERE status = 1";
                 $resultado = $conn->query($sql);
                 while ($row = $resultado->fetch_assoc()) {
                 ?>
-                    <div class="item">
-                        <a href="filmes.php?id=<?= $row['id']; ?>"><?= $row['categoria']; ?></a>
-                    </div>
+                    <option value="<?= $row["id"]?>"><?= $row["categoria"]?></option>
                 <?php
                 }
                 ?>
+                 </select>
             </div>
-
             <input type="submit" value="Incluir" class="btn">
             <div class="extra-options">
                 <a href="dados_genero.php">Voltar</a>

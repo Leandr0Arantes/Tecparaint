@@ -76,3 +76,8 @@ body{
 .container-filme p {
     margin: 30px;
 }
+
+.container-filme .container-informacoes p{
+    color: white;
+}
+

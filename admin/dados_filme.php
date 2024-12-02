@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 include('../funcoes/conexao.php');
 include('../funcoes/valida.php');
 include('../funcoes/filtro_filme.php');
@@ -62,6 +64,10 @@ verificarAdmin(true);
         .table button i {
             font-size: 20px;
         }
+
+        select{
+            padding: 0.5em;
+        }
     </style>
 </head>
 
@@ -106,7 +112,31 @@ verificarAdmin(true);
                                 <td><input type="text" name="nome" value="<?= $row['nome']; ?>"></td>
                                 <td><input type="text" name="descricao" value="<?= $row['descricao']; ?>"></td>
                                 <td><input type="text" name="imagem" value="<?= $row['imagem']; ?>"></td>
-                                <td><a href="cadastro_categoria.php?id=<?= $row['id']; ?>">Escolher</a></td>
+                                <td> <select name="categoria" id="categoria">
+                                        <?php
+                                        $sqlGenero = "SELECT * FROM generos WHERE status = 1";
+                                        $resultadoGenero = $conn->query($sqlGenero);
+                                        while ($rowGenero = $resultadoGenero->fetch_assoc()) {
+
+                                            $id_genero = $rowGenero['id'];
+                                            $id_filme = $row['genero_id'];
+
+                                            if ($id_filme == $id_genero) {
+                                        ?>
+                                                <option selected value="<?= $rowGenero["id"] ?>"><?= $rowGenero["categoria"] ?></option>
+                                            <?php
+                                            } else {
+                                            ?>
+                                                <option value="<?= $rowGenero["id"] ?>"><?= $rowGenero["categoria"] ?></option>
+                                            <?php
+                                            }
+                                            ?>
+
+                                        <?php
+                                        }
+                                        ?>
+                                    </select>
+                                </td>
                                 <td><?php echo $row['status'] ? "Ativo" : "Inativo"; ?></td>
                                 <td><button type="submit" value="Alterar" class="btn-input"><i class="bi bi-pencil-square"></i></button></td>
                             </form>
@@ -132,11 +162,11 @@ verificarAdmin(true);
         <?php
         if (isset($_GET["sucesso"]) && $_GET["sucesso"] == 1) {
         ?>
-            window.alert("Usuário inserido com sucesso!");
+            window.alert("Filme inserido com sucesso!");
         <?php
         } else if (isset($_GET["sucesso"]) && $_GET["sucesso"] == 0) {
         ?>
-            window.alert("Usuário com falha!")
+            window.alert("Filme com falha!")
         <?php
         }
         ?>

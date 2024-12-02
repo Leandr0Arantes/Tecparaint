@@ -8,10 +8,11 @@ $idAtual = $_POST["idAtual"];
 $nome = $_POST["nome"];
 $descricao = $_POST["descricao"];
 $imagem = $_POST["imagem"];
+$categoria = $_POST["categoria"];
 
-$sql = ("UPDATE `filmes` SET nome = ?, descricao = ?, imagem = ? WHERE id = '$idAtual'");
+$sql = ("UPDATE `filmes` SET nome = ?, descricao = ?, imagem = ?, genero_id = ? WHERE id = '$idAtual'");
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("sss", $nome, $descricao, $imagem);
+$stmt->bind_param("sssi", $nome, $descricao, $imagem, $categoria);
 
 if($stmt->execute()){
     header("Location: ../admin/dados_filme.php?alterado=1");

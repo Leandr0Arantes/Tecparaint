@@ -1,3 +1,6 @@
+<?php
+include("../funcoes/conexao.php");
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -25,9 +28,23 @@
                 <label for="imagem">URL do banner do filme</label>
                 <input type="text" name="imagem" id="imagem" required placeholder="Digite a URL do banner do filme">
             </div>
+            <div class="form-input">
+                <label for="categoria">Escolha uma categoria</label>
+                <select name="categoria" id="categoria">
+                    <?php
+                    $sql = "SELECT id,categoria FROM generos WHERE status = 1";
+                    $resultado = $conn->query($sql);
+                    while ($row = $resultado->fetch_assoc()) {
+                    ?>
+                        <option value="<?= $row["id"] ?>"><?= $row["categoria"] ?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+            </div>
             <input type="submit" value="Incluir" class="btn">
             <div class="extra-options">
-                <a href="index.php">Voltar</a>
+                <a href="../admin/dados_filme.php">Voltar</a>
             </div>
         </form>
     </div>
