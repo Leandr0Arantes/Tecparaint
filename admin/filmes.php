@@ -29,7 +29,6 @@ verificarAdmin(true);
             <p class="titulo"><?= $row['nome']?></p>
             <p class="descricao"><?= $row['descricao']?></p>
             </div>
-
         </div>
         </a>
         <?php 

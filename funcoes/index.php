@@ -14,7 +14,7 @@ if(!validarSenha($senha)){
     die;
 }
 
-$sql = "select nome, administrador, foto from usuarios where cpf = ? and senha = ?";
+$sql = "select nome, administrador, foto from usuarios where cpf = ? and senha = ? and status = 1";
 $stmt = $conn->prepare($sql);
 
 if($stmt){

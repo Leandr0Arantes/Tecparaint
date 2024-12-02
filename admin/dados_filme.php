@@ -16,7 +16,6 @@ verificarAdmin(true);
     <link rel="stylesheet" href="../css/form.css">
     <link rel="stylesheet" href="../css/table.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../css/mensagem-erro.css">
     <style>
         html * {
             box-sizing: border-box;
@@ -92,6 +91,7 @@ verificarAdmin(true);
                 <th><a href="dados_filme.php?nome=<?= $newNome ?>">Nome</a></th>
                 <th><a href="dados_filme.php?descricao=<?= $newDescricao ?>">Descrição</a></th>
                 <th><a href="dados_filme.php?imagem=<?= $newImagem ?>">URL da imagem</a></th>
+                <th>Categoria</th>
                 <th><a href="dados_filme.php?status=<?= $newStatus ?>">Status</a></th>
                 <th colspan="2">Ações</th>
                 <?php
@@ -106,6 +106,7 @@ verificarAdmin(true);
                                 <td><input type="text" name="nome" value="<?= $row['nome']; ?>"></td>
                                 <td><input type="text" name="descricao" value="<?= $row['descricao']; ?>"></td>
                                 <td><input type="text" name="imagem" value="<?= $row['imagem']; ?>"></td>
+                                <td><a href="cadastro_categoria.php?id=<?= $row['id']; ?>">Escolher</a></td>
                                 <td><?php echo $row['status'] ? "Ativo" : "Inativo"; ?></td>
                                 <td><button type="submit" value="Alterar" class="btn-input"><i class="bi bi-pencil-square"></i></button></td>
                             </form>
@@ -190,6 +191,17 @@ verificarAdmin(true);
     </script>
 
     <script src="../funcoes/validacoes.js"></script>
+    <script>
+        // script.js
+        function mostrarCategorias() {
+            document.getElementById('categorias-lista').style.display = 'block';
+        }
+
+        function selecionarCategoria(categoria) {
+            document.getElementById('categorias').value = categoria;
+            document.getElementById('categorias-lista').style.display = 'none';
+        }
+    </script>
 </body>
 
 </html>
