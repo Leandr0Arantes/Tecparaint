@@ -15,7 +15,7 @@
             <p>Redefinir senha</p>
             <div class="form-input">
                 <label for="cpf">Usuário</label>
-                <input type="text" name="cpf" id="cpf" required placeholder="Digite seu cpf">
+                <input type="text" name="cpf" id="cpf" required placeholder="Digite seu cpf" maxlength="14" oninput="mascaraCPF(this)">
             </div>
             <div class="form-input">
                 <label for="senha">Senha</label>
@@ -28,5 +28,7 @@
         </form>
     </div>
 </body>
+
+<script src="funcoes/mascararCPF.js"></script>
 
 </html>
