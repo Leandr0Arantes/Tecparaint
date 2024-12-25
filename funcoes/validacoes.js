@@ -13,7 +13,7 @@ function validarNome(nome) {
             return true;
         }
 
-        function validarCPF() {
+        function validarCPF(cpf) {
             let cpf = document.getElementById("cpf").value;
             cpf = cpf.replace(/\D/g, '');
 
@@ -57,7 +57,7 @@ function validarNome(nome) {
             return true;
         }
 
-        function validarSenha() {
+        function validarSenha(senha) {
             const senha = document.getElementById('senha').value;
 
             if (senha.length < 6) {
